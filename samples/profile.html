@@ -2,10 +2,6 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
 </head>
 <body>
     <header>
@@ -38,7 +34,7 @@
     <main>
         <div class="container">
             <div class="row my-5">
-                <div class="col-md-6">
+                <div class="col-md-6 collapse" id="collapseEdit1">
                     <dl class="row">
                         <dt class="col-sm-4">Company Name</dt>
                         <dd class="col-sm-8">iWash Laundry Services</dd>
@@ -52,7 +48,7 @@
                         <dt class="col-sm-4">email address</dt>
                         <dd class="col-sm-8">iwashlaundry@gmail.com</dd>
                     </dl>
-                    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#collapseEdit" aria-expanded="false" aria-controls="collapseEdit">Edit</button>
+                    <button type="button" class="btn btn-primary" data-toggle="collapse"  data-target="#collapseEdit" aria-expanded="false" aria-controls="collapseEdit">Edit</button>
                 </div>
                 <div class="col-md-6 collapse" id="collapseEdit">
                     <div class="card card-block">
@@ -83,7 +79,7 @@
                             </div>
                             <div class="form-group row">
                                  <div class="offset-sm-2 col-sm-10">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary" >Submit</button>
                                  </div>
                             </div>
                         </form>
@@ -95,6 +91,19 @@
     <footer class="text-white text-center bg-inverse fixed-bottom ">
         &copy; iWash 2017
     </footer>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
+    <script>
+
+        $(document).ready(function(){
+            $("#collapseEdit1").collapse("show");
+            $("#collapseEdit").on("shown.bs.collapse", function(){
+                $("#collapseEdit1").collapse("toggle");
+            })
+        });
+    </script>
 </body>
 
 
