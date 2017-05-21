@@ -1,0 +1,19 @@
+.my-top-border {
+    border-top: solid 1px #d2d4d8;
+}
+
+.my-left-border {
+    border-left: solid 1px #d2d4d8;
+}
+
+.my-right-border {
+    border-right: solid 1px #d2d4d8;
+}
+
+.my-bottom-broder {
+    border-bottom: solid 1px #d2d4d8;
+}
+
+.my-all-sides-border {
+    border: solid 1px #d2d4d8;
+}
