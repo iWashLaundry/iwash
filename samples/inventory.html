@@ -3,6 +3,8 @@
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <script src="https://use.fontawesome.com/f6bf194cbc.js"></script>   
+    
+
 </head>
 <body>
     <header>
@@ -57,24 +59,72 @@
                         <input type="text" class="form-control" placeholder="Search"/>
                     </div>
                     <div class="card-block">
-                        <div class="list-group">
-                            <a href="#" class="list-group-item list-group-action justify-content-between">
-                                Detergent
-                                <span class="badge badge-default badge-pill">14</span>
-                            </a>
-                            <a href="#" class="list-group-item list-group-action justify-content-between">
-                                Fabric Conditioner
-                                <span class="badge badge-default badge-pill">12</span>
-                            </a>
-                            <a href="#" class="list-group-item list-group-action justify-content-between">
-                                Bleach
-                                <span class="badge badge-default badge-pill">14</span>
-                            </a>
-                            <a href="#" class="list-group-item list-group-action justify-content-between">
-                                Plastic Bags
-                                <span class="badge badge-default badge-pill">14</span>
-                            </a>
-                        </div>
+                        <table class="table table-striped table-hover table-responsive">
+                            <thead class="thead-inverse">
+                                <tr>
+                                    <th>Item #</th>
+                                    <th>Inventory Item</th>
+                                    <th>Number of Items</th>
+                                    <th>Unit of Measurement</th>
+                                    <th>Expense Amount</th>
+                                    <th>Stock Last Check</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>1</th>
+                                    <th>Detergent</th>
+                                    <th><select class="form-control form-control-sm 1-100"></select></th>
+                                    <th>
+                                        <div class="form-group">
+                                            <select class="form-control form-control-sm" id="select-unit-of-measurement">
+                                            <option>pounds</option>
+                                            <option>kilograms</option>
+                                            <option>pieces</option>
+                                            <option>cups</option>
+                                            </select>
+                                        </div>
+                                    </th>
+                                    <th>
+                                            <div class="form-group form-inline row" style="min-width:130px;">
+                                                    <label for="currency-label" class="col-1"><span>&#8369</span></label>
+                                                    <select class="form-control form-control-sm col-6 1-100"></select>                                          
+                                            </div>
+                                    </th>
+                                    <th>                                           
+                                            <div class="col-md-12">
+                                                <input class="form-control form-control-sm col" type="date" value="2011-08-19" id="date-input">
+                                            </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>2</th>
+                                    <th>Plastic</th>
+                                    <th><select class="form-control form-control-sm 1-100"></select></th>
+                                    <th>
+                                        <div class="form-group">
+                                            <select class="form-control form-control-sm" id="select-unit-of-measurement">
+                                            <option>pounds</option>
+                                            <option>kilograms</option>
+                                            <option>pieces</option>
+                                            <option>cups</option>
+                                            </select>
+                                        </div>
+                                    </th>
+                                    <th>
+                                            <div class="form-group form-inline row" style="min-width:130px;">
+                                                    <label for="currency-label" class="col-1"><span>&#8369</span></label>
+                                                    <select class="form-control form-control-sm col-6 1-100"></select>                                          
+                                            </div>
+                                    </th>
+                                    <th>                                           
+                                            <div class="col-md-12">
+                                                <input class="form-control form-control-sm col" type="date" value="2011-08-19" id="date-input">
+                                            </div>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -83,9 +133,17 @@
     <footer class="text-white text-center bg-inverse fixed-bottom ">
         &copy; iWash 2017
     </footer>
-     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script>
+       $(function(){
+            var option = $(".1-100");
+                for (i=1;i<=100;i++){
+                    option.append($('<option></option>').val(i).html(i))
+                }
+            });
+    </script>
 </body>
 
 
