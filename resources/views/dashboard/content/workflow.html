@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://use.fontawesome.com/f6bf194cbc.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse"> 
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="index-logged-in.html">iWash</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="workflow.html">
+                            <i class="fa fa-play fa-lg" aria-hidden="true"></i>
+                            Workflow <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="customers.html">
+                            <i class="fa fa-male fa-lg" aria-hidden="true"></i>
+                            Customers 
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="inventory.html">
+                            <i class="fa fa-list fa-lg" aria-hidden="true"></i>
+                            Inventory 
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="analytics.html">
+                            <i class="fa fa-area-chart fa-lg" aria-hidden="true"></i>
+                            Analytics 
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.html">
+                            <i class="fa fa-id-card fa-lg" aria-hidden="true"></i>
+                            Profile
+                        </a>    
+                    </li>    
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-3 text-center">
+                    <div class="card-block">
+                        <p class="card-text">New <button class="btn btn-sm btn-secondary">+</button></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <a href="#" data-toggle="modal" data-target="#myModal">Customer Name</a>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Customer Name</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <dl class="row">
+                                        <dt class="col-sm-7">ID</dt>
+                                        <dd class="col-sm-5 text-right">09999</dd>
+
+                                        <dt class="col-sm-7">Weight</dt>
+                                        <dd class="col-sm-5 text-right">3kg</dd>
+                                        
+                                        <dt class="col-sm-7">Whites</dt>
+                                        <dd class="col-sm-5 text-right">5</dd>
+                                        
+                                        <dt class="col-sm-7">Colored</dt>
+                                        <dd class="col-sm-5 text-right">2</dd>
+                                    
+                                        <dt class="col-sm-7">Due Date</dt>
+                                        <dd class="col-sm-5 text-right">02/02/17</dd>
+
+                                        <dt class="col-sm-7">Amount</dt>
+                                        <dd class="col-sm-5 text-right">P90.00</dd>
+
+                                        <dt class="col-sm-7">Status</dt>
+                                        <dd class="col-sm-5 text-right">Paid</dd>
+                                    </dl>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger">Remove</button>
+                                    <button type="button" class="btn btn-primary">Wash</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-block">
+                        <a href="#" class="card-link btn btn-sm btn-danger">Remove</a>
+                        <a href="#" class="card-link btn btn-sm btn-primary">Wash</a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-inverse card-primary mb-3 text-center">
+                    <div class="card-block">
+                        <p class="card-text">In Progress</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        Customer Name
+                    </div>
+                    <div class="card-block">
+                        <a href="#" class="card-link btn btn-sm btn-secondary">Back</a>
+                        <a href="#" class="card-link btn btn-sm btn-success">Ready</a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-inverse card-success mb-3 text-center">
+                    <div class="card-block">
+                        <p class="card-text">Ready</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        Customer Name
+                    </div>
+                    <div class="card-block">
+                        <a href="#" class="card-link btn btn-sm btn-secondary">Back</a>
+                        <a href="#" class="card-link btn btn-sm btn-primary">Claimed</a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="text-white text-center bg-inverse fixed-bottom ">
+        &copy; iWash 2017
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+</body>
+
+
+</html>
