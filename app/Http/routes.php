@@ -12,5 +12,25 @@
 */
 
 Route::get('/', function () {
-    return view('dashboard.main');
+    return view('dashboard.content.index', ['page' => 'index']);
+});
+
+Route::get('/workflow', function () {
+    return view('dashboard.content.workflow', ['page' => 'workflow']);
+});
+
+Route::get('/customers', function () {
+    return view('dashboard.content.customers', ['page' => 'customers']);
+});
+
+Route::get('/inventory', function () {
+    return view('dashboard.content.inventory', ['page' => 'inventory']);
+});
+
+Route::get('/analytics', function () {
+    return view('dashboard.content.analytics', ['page' => 'analytics']);
+});
+
+Route::get('/profile', function () {
+    return view('dashboard.content.profile', ['page' => 'profile']);
 });

@@ -6,34 +6,34 @@
             <a class="navbar-brand" href="index-logged-in.html">iWash</a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="workflow.html">
+                    <li class="nav-item {{ $page == 'workflow' ? 'active' : '' }}">
+                        <a class="nav-link" href="/workflow">
                             <i class="fa fa-play fa-lg" aria-hidden="true"></i>
                             Workflow <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="customers.html">
+                    <li class="nav-item {{ $page == 'customers' ? 'active' : '' }}">
+                        <a class="nav-link" href="/customers">
                             <i class="fa fa-male fa-lg" aria-hidden="true"></i>
                             Customers 
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="inventory.html">
+                    <li class="nav-item {{ $page == 'inventory' ? 'active' : '' }}">
+                        <a class="nav-link" href="/inventory">
                             <i class="fa fa-list fa-lg" aria-hidden="true"></i>
                             Inventory 
                         </a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="analytics.html">
+                    <li class="nav-item {{ $page == 'analytics' ? 'active' : '' }}">
+                        <a class="nav-link" href="/analytics">
                             <i class="fa fa-area-chart fa-lg" aria-hidden="true"></i>
                             Analytics 
                         </a>
                     </li>
                 </ul>
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="profile.html">
+                    <li class="nav-item {{ $page == 'profile' ? 'active' : '' }}">
+                        <a class="nav-link" href="/profile">
                             <i class="fa fa-id-card fa-lg" aria-hidden="true"></i>
                             Profile
                         </a>    
