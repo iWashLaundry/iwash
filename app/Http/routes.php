@@ -34,3 +34,7 @@ Route::get('/analytics', function () {
 Route::get('/profile', function () {
     return view('dashboard.content.profile', ['page' => 'profile']);
 });
+
+Route::get('/register', function () {
+
+});

@@ -33,10 +33,17 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item {{ $page == 'profile' ? 'active' : '' }}">
-                        <a class="nav-link" href="/profile">
-                            <i class="fa fa-id-card fa-lg" aria-hidden="true"></i>
-                            Profile
-                        </a>    
+                        <div class="dropdown">
+                            <a class="nav-link dropdown-toggle" id="accountDropdownMenuButton" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-id-card fa-lg" aria-hidden="true"></i>
+                                Account
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="accountDropdownMenuButton">
+                                <a class="dropdown-item" href="/profile">Profile</a>
+                                <a class="dropdown-item" href="/logn">Login</a>
+                            </div>
+                        </div>
+                            
                     </li>    
                 </ul>
             </div>
