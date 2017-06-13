@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="myCss/borders.css">
+    
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse"> 
+           
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">iWash</a>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+                        <li class="nav-item active">
+                            <a class="nav-link px-3 mb-1" href="create-account.html">Create Account / Login<span class="sr-only">(current)</span></a>
+                        </li>
+                        
+                        
+                    </ul>
+                </div>    
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+        
+        <div class="row mt-5">
+                <div class="col-md-5">
+                        <h4>Create new account :</h4>
+                        <form>
+                            <div class="form-group row">
+                                <label for="inputEmail" class="col-sm-2 col-form-label">Your Email</label>
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" id="inputEmail" placeholder="iwash@gmail.com">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputUsername" class="col-sm-2 col-form-label">Username</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputUsername" placeholder="iwash">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputCompanyName" class="col-sm-2 col-form-label">Company Name</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputCompanyName" placeholder="iwash Laundry Services">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" id="inputPassword" placeholder="Password123">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputConfirmPassword" class="col-sm-2 col-form-label">Confirm Password</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Password123">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputPhoneNumber" class="col-sm-2 col-form-label">Phone number</label>
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" id="inputPhoneNumber" placeholder="09223146758">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                 <div class="offset-sm-2 col-sm-10">
+                                    <button type="submit" class="btn btn-primary">Sign up</button>
+                                 </div>
+                            </div>
+                        </form>
+                </div>
+                <div class="col-md-1 my-left-border" ></div>
+                <div class="col-md-5">
+                    <h4>Login below :</h4>
+                    <form>
+                        <label class="sr-only" for="inlineFormInput">UsernameLogin</label>
+                        <input type="text" class="form-control mb-3 mr-sm-2 mb-sm-3" id="inlineFormInput" placeholder="Username">
+
+                        <label class="sr-only" for="inlineFormInput">PasswordLogin</label>
+                        <input type="password" class="form-control mb-3 mr-sm-2 mb-sm-3" id="inlineFormInput" placeholder="Password">
+
+                        <div class="form-check mb-2 mr-sm-2 mb-sm-2">
+                            <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox"> <span class="text-muted">Remember me</span> 
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>                
+                </div>
+                <div class="col-md-1 my-left-border" ></div>
+        </div>
+        </div>
+    </main>
+    <footer class="text-white text-center bg-inverse fixed-bottom ">
+        &copy; iWash 2017
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+</body>
+
+
+</html>
