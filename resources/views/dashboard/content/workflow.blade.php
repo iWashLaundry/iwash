@@ -4,15 +4,15 @@
             <div class="col-md-4">
                 <div class="card mb-3 text-center">
                     <div class="card-block">
-                        <p class="card-text">New <button class="btn btn-sm btn-secondary">+</button></p>
+                        <p class="card-text">New <a href="#" data-toggle="modal" data-target="#new-order-modal" class="btn btn-sm btn-secondary">+</a></p>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-header">
-                        <a href="#" data-toggle="modal" data-target="#myModal">Customer Name</a>
+                        <a href="#" data-toggle="modal" data-target="#order-modal">Customer Name</a>
                     </div>
-                    <!-- Modal -->
-                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <!-- Start Order Details Modal -->
+                    <div class="modal fade" id="order-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -51,7 +51,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> <!-- end item details modal -->
                     <div class="card-block">
                         <a href="#" class="card-link btn btn-sm btn-danger">Remove</a>
                         <a href="#" class="card-link btn btn-sm btn-primary">Wash</a>
@@ -100,4 +100,9 @@
                 </div>
             </div>
         </div>
+
+        @include('dashboard.modals.create-order')
+@endsection
+@section('scripts')
+    <script src="{{ asset("js/dashboard/workflow/create-order.js")}}"></script>
 @endsection
