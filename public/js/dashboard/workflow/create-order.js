@@ -21,18 +21,9 @@ $(document).ready(function(){
     //adds new order to the workflows
     $("#new-order-form").on('submit', function(e){
         e.preventDefault();
-        $("#new-orders").append('<div class="card mb-2">'
-                +'<div class="card-header">'
-                +'    <a href="#" data-toggle="modal" data-target="#order-modal">Customer Name</a>'
-                +'</div>'
-                +'<div class="card-block">'
-                +'    <a href="#" class="card-link btn btn-sm btn-danger">Cancel</a>'
-                +'    <a href="#" class="card-link btn btn-sm btn-primary">Wash</a>'
-                +'</div>'
-                +'<div class="card-footer">'
-                +'    <small class="text-muted">Last updated 3 mins ago</small>'
-                +'</div>'
-            +'</div>');
+        var customerName = $("#customer-first-name").val() + " " + $("#customer-last-name").val();
+        add_new_order(customerName);
         $("#new-order-modal").modal("hide");
     });
 });
+
