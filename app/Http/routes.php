@@ -18,6 +18,8 @@
 Route::get('/', function(){ return redirect('/home'); });
 
 Route::group(['prefix' => 'dashboard'], function(){
+    Route::get('home', 'DashboardController@home');
+
     Route::get('workflow', 'DashboardController@workflow');
 
     Route::get('customers', 'DashboardController@customers');
