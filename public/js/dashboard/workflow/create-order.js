@@ -26,12 +26,13 @@ $(document).ready(function(){
                 +'    <a href="#" data-toggle="modal" data-target="#order-modal">Customer Name</a>'
                 +'</div>'
                 +'<div class="card-block">'
-                +'    <a href="#" class="card-link btn btn-sm btn-danger">Remove</a>'
+                +'    <a href="#" class="card-link btn btn-sm btn-danger">Cancel</a>'
                 +'    <a href="#" class="card-link btn btn-sm btn-primary">Wash</a>'
                 +'</div>'
                 +'<div class="card-footer">'
                 +'    <small class="text-muted">Last updated 3 mins ago</small>'
                 +'</div>'
             +'</div>');
+        $("#new-order-modal").modal("hide");
     });
 });

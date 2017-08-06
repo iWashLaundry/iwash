@@ -18,6 +18,10 @@ class DashboardController extends Controller
         $this->middleware('auth');
     }
 
+    public function home(){
+        return view('dashboard.content.index', ['page' => 'home']);
+    }
+
     public function workflow() {
         return view('dashboard.content.workflow', ['page' => 'workflow']);
     }
