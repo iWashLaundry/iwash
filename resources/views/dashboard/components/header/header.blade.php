@@ -6,10 +6,16 @@
             <a class="navbar-brand" href="/">iWash</a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
+                    <li class="nav-item {{ isset($page) && $page == 'home' ? 'active' : '' }}">
+                        <a class="nav-link" href="/dashboard/home">
+                            <i class="fa fa-home fa-lg" aria-hidden="true"></i>
+                            Home <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
                     <li class="nav-item {{ isset($page) && $page == 'workflow' ? 'active' : '' }}">
                         <a class="nav-link" href="/dashboard/workflow">
                             <i class="fa fa-play fa-lg" aria-hidden="true"></i>
-                            Workflow <span class="sr-only">(current)</span>
+                            Workflow
                         </a>
                     </li>
                     <li class="nav-item {{ isset($page) && $page == 'customers' ? 'active' : '' }}">
