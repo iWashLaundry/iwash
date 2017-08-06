@@ -71,42 +71,42 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-9">
-                <div class="card">
+            <div class="col-md-8">
+                <div class="card mt-3">
                     <div class="card-block"> 
                         <dl class="row">
-                            <dt class="col-sm-7">ID</dt>
-                            <dd class="col-sm-5 text-right">09999</dd>
-
-                            <dt class="col-sm-7">Name</dt>
-                            <dd class="col-sm-5 text-right">Jason</dd>
+                            <dt class="col-sm-3 col-md-3">ID</dt>
+                            <dd class="col-sm-3 col-md-9">09999</dd>
+                        
+                            <dt class="col-sm-3 col-md-3">First Name</dt>
+                            <dd class="col-sm-3 col-md-3">Jason</dd>
                                     
-                            <dt class="col-sm-7">Last Name</dt>
-                            <dd class="col-sm-5 text-right">Derulo</dd>
+                            <dt class="col-sm-3 col-md-3">Last Name</dt>
+                            <dd class="col-sm-3 col-md-3">Derulo</dd>
                                     
-                            <dt class="col-sm-7">Customer Since</dt>
-                            <dd class="col-sm-5 text-right">02/02/17</dd>
-
-                            <dt class="col-sm-7">Orders Claimed</dt>
-                            <dd class="col-sm-5 text-right">2</dd>                                
+                            <dt class="col-sm-3 col-md-3">Customer Since</dt>
+                            <dd class="col-sm-3 col-md-3">02/02/17</dd>
                             
-                            <dt class="col-sm-7">No of Visits</dt>
-                            <dd class="col-sm-5 text-right">3</dd>                                
+                            <dt class="col-sm-3 col-md-3">Orders Claimed</dt>
+                            <dd class="col-sm-3 col-md-3">2</dd>                                
                             
-                            <dt class="col-sm-7">Last Visit</dt>
-                            <dd class="col-sm-5 text-right">02/05/17</dd>
+                            <dt class="col-sm-3 col-md-3">Last Visit</dt>
+                            <dd class="col-sm-3 col-md-3">02/05/17</dd>
+                            
+                            <dt class="col-sm-3 col-md-3">No of Visits</dt>
+                            <dd class="col-sm-3 col-md-3">3</dd>                                
                         </dl>
                     </div>
                     <div class="card-block">
                         <dl class="row">        
-                            <dt class="col-sm-7">Current Order</dt>
-                            <dd class="col-sm-5 text-right">09999</dd>
+                            <dt class="col-sm-3 col-md-3">Current Order</dt>
+                            <dd class="col-sm-9 col-md-9">09999</dd>
 
-                            <dt class="col-sm-7">Current Order Status</dt>
-                            <dd class="col-sm-5 text-right">Wash</dd>
+                            <dt class="col-sm-3 col-md-3">Current Order Status</dt>
+                            <dd class="col-sm-9 col-md-9">Wash</dd>
 
-                            <dt class="col-sm-7">Current Order Due Date</dt>
-                            <dd class="col-sm-5 text-right">02/06/17</dd>    
+                            <dt class="col-sm-3">Current Order Due Date</dt>
+                            <dd class="col-sm-9">02/06/17</dd>    
                         </dl>
                     </div>
                 </div>
