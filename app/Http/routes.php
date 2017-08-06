@@ -11,26 +11,25 @@
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard.content.index', ['page' => 'index']);
+// Route::get('/', function () {
+//     return view('dashboard.content.index', ['page' => 'index']);
+// });
+
+Route::get('/', function(){ return redirect('/home'); });
+
+Route::group(['prefix' => 'dashboard'], function(){
+    Route::get('workflow', 'DashboardController@workflow');
+
+    Route::get('customers', 'DashboardController@customers');
+
+    Route::get('inventory', 'DashboardController@inventory');
+
+    Route::get('analytics', 'DashboardController@analytics');
+
+    Route::get('profile', 'DashboardController@profile');
 });
 
-Route::get('/workflow', function () {
-    return view('dashboard.content.workflow', ['page' => 'workflow']);
-});
 
-Route::get('/customers', function () {
-    return view('dashboard.content.customers', ['page' => 'customers']);
-});
+Route::auth();
 
-Route::get('/inventory', function () {
-    return view('dashboard.content.inventory', ['page' => 'inventory']);
-});
-
-Route::get('/analytics', function () {
-    return view('dashboard.content.analytics', ['page' => 'analytics']);
-});
-
-Route::get('/profile', function () {
-    return view('dashboard.content.profile', ['page' => 'profile']);
-});
+Route::get('/home', 'HomeController@index');
