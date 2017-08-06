@@ -46,14 +46,14 @@
                                     </dl>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger remove-order">Remove</button>
+                                    <button type="button" class="btn btn-danger remove-order">Cancel Order</button>
                                     <button type="button" class="btn btn-primary wash-order">Wash</button>
                                 </div>
                             </div>
                         </div>
                     </div> <!-- end item details modal -->
                     <div class="card-block">
-                        <a href="#" class="card-link btn btn-sm btn-danger remove-order">Remove</a>
+                        <a href="#" class="card-link btn btn-sm btn-danger remove-order">Cancel</a>
                         <a href="#" class="card-link btn btn-sm btn-primary wash-order">Wash</a>
                     </div>
                     <div class="card-footer">
@@ -72,7 +72,7 @@
                         Customer Name
                     </div>
                     <div class="card-block">
-                        <a href="#" class="card-link btn btn-sm btn-secondary wash-order-back">Back</a>
+                        <a href="#" class="card-link btn btn-sm btn-secondary wash-order-back">Return</a>
                         <a href="#" class="card-link btn btn-sm btn-success ready-order">Ready</a>
                     </div>
                     <div class="card-footer">
@@ -91,7 +91,7 @@
                         Customer Name
                     </div>
                     <div class="card-block">
-                        <a href="#" class="card-link btn btn-sm btn-secondary ready-order-back">Back</a>
+                        <a href="#" class="card-link btn btn-sm btn-secondary ready-order-back">Return</a>
                         <a href="#" class="card-link btn btn-sm btn-primary claim-order">Claimed</a>
                     </div>
                     <div class="card-footer">
@@ -103,7 +103,7 @@
                         Customer Name
                     </div>
                     <div class="card-block">
-                        <a href="#" class="card-link btn btn-sm btn-secondary">Back</a>
+                        <a href="#" class="card-link btn btn-sm btn-secondary">Return</a>
                         <a href="#" class="card-link btn btn-sm btn-primary">Claimed</a>
                     </div>
                     <div class="card-footer">
