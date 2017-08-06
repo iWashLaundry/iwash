@@ -53,7 +53,7 @@
                         </div>
                     </div> <!-- end item details modal -->
                     <div class="card-block">
-                        <a href="#" class="card-link btn btn-sm btn-danger remove-order">Cancel</a>
+                        <a href="#" class="card-link btn btn-sm btn-danger cancel-order">Cancel</a>
                         <a href="#" class="card-link btn btn-sm btn-primary wash-order">Wash</a>
                     </div>
                     <div class="card-footer">
@@ -69,10 +69,10 @@
                 </div>
                 <div class="card mb-2">
                     <div class="card-header">
-                        Customer Name
+                        <a href="#" data-toggle="modal" data-target="#order-modal">Customer Name</a>
                     </div>
                     <div class="card-block">
-                        <a href="#" class="card-link btn btn-sm btn-secondary wash-order-back">Return</a>
+                        <a href="#" class="card-link btn btn-sm btn-secondary return-order">Return</a>
                         <a href="#" class="card-link btn btn-sm btn-success ready-order">Ready</a>
                     </div>
                     <div class="card-footer">
@@ -88,10 +88,10 @@
                 </div>
                 <div class="card mb-2">
                     <div class="card-header">
-                        Customer Name
+                        <a href="#" data-toggle="modal" data-target="#order-modal">Customer Name</a>
                     </div>
                     <div class="card-block">
-                        <a href="#" class="card-link btn btn-sm btn-secondary ready-order-back">Return</a>
+                        <a href="#" class="card-link btn btn-sm btn-secondary return-order">Return</a>
                         <a href="#" class="card-link btn btn-sm btn-primary claim-order">Claimed</a>
                     </div>
                     <div class="card-footer">
@@ -100,11 +100,11 @@
                 </div>
                 <div class="card mb-2">
                     <div class="card-header">
-                        Customer Name
+                        <a href="#" data-toggle="modal" data-target="#order-modal">Customer Name</a>
                     </div>
                     <div class="card-block">
-                        <a href="#" class="card-link btn btn-sm btn-secondary">Return</a>
-                        <a href="#" class="card-link btn btn-sm btn-primary">Claimed</a>
+                        <a href="#" class="card-link btn btn-sm btn-secondary return-order">Return</a>
+                        <a href="#" class="card-link btn btn-sm btn-primary claim-order">Claimed</a>
                     </div>
                     <div class="card-footer">
                         <small class="text-muted">Last updated 3 mins ago</small>
