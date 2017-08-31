@@ -16,6 +16,10 @@ class CreateOrderTable extends Migration
             $table->bigIncrements('order_id');
             $table->bigInteger('branch_id');
             $table->bigInteger('customer_id');
+            $table->string('customer_first_name');
+            $table->string('customer_last_name');
+            $table->string('customer_email');
+            $table->string('customer_phone');
             $table->timestamp('date_ordered');
             $table->timestamp('date_to_claim');
             $table->timestamp('date_started');

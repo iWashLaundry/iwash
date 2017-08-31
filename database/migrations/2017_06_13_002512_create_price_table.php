@@ -15,6 +15,7 @@ class CreatePriceTable extends Migration
         Schema::create('price', function (Blueprint $table) {
             $table->bigIncrements('price_id');
             $table->bigInteger('pricebook_id');
+            $table->bigInteger('product_id');
             $table->bigInteger('product_variant_id');
             $table->integer('price');
         });
