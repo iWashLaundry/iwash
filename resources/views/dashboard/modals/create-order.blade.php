@@ -1,7 +1,7 @@
 <div class="modal fade" id="new-order-modal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <form id="new-order-form">
+      <form id="new-order-form" ng-submit="controller.orders.create(controller.order)">
         <div class="modal-header">
           <h5 class="modal-title">New Order</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -10,16 +10,16 @@
         </div>
         <div class="modal-body">
           <div class="form-group">
-            <input type="text" name="first_name" class="form-control" id="customer-first-name" placeholder="First name">
+            <input type="text" name="first_name" class="form-control" id="customer-first-name" placeholder="First name" ng-model="controller.order.customer_first_name">
           </div>
           <div class="form-group">
-            <input type="text" name="last_name" class="form-control" id="customer-last-name" placeholder="Last name">
+            <input type="text" name="last_name" class="form-control" id="customer-last-name" placeholder="Last name" ng-model="controller.order.customer_last_name">
           </div>
           <div class="form-group">
-            <input type="email" name="email" class="form-control" id="customer-email" placeholder="Email">
+            <input type="email" name="email" class="form-control" id="customer-email" placeholder="Email" ng-model="controller.order.customer_email">
           </div>
           <div class="form-group">
-            <input type="text" name="phone" class="form-control" id="customer-phone" placeholder="Phone">
+            <input type="text" name="phone" class="form-control" id="customer-phone" placeholder="Phone" ng-model="controller.order.customer_phone">
           </div>
           <div class="form-group">
             <div class="dropdown">
