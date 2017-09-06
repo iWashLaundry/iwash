@@ -1,4 +1,4 @@
-app.controller("InventoryController", function($http, $scope){
+app.controller("ProductController", function($http, $scope){
     var controller = this;
     this.product = {
         name: '',

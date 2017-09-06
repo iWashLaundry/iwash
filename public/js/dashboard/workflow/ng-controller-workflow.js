@@ -12,6 +12,10 @@ app.controller("WorkflowController", function($http, $scope){
         date_started: '',
         date_to_claim: '',
         products: [],
+        updateProduct: function(productId, quantity){
+            controller.order.products[productId] = quantity;
+            console.log(controller.order.products);
+        },
     }
     
     this.orders = {

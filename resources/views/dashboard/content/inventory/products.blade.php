@@ -1,4 +1,4 @@
-                <div class="card mb-2">
+                <div class="card mb-2" ng-controller="ProductController as pc">
                     <div class="card-header">
                         <div class="row">
                             <div class="col-md-7">
@@ -22,7 +22,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="product in controller.products.all">
+                                <tr ng-repeat="product in pc.products.all">
                                     <td>1</td>
                                     <td>@{{ product.name }}</td>
                                     <td>
@@ -43,19 +43,19 @@
                                     </td>
                                     <td>@{{ product.created_at | date : format : "shortDate" }}</td>
                                     <td>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="controller.products.delete(product.product_id)">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="pc.products.delete(product.product_id)">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </td>  
                                 </tr>
                                 <tr>
-                                    <form ng-submit="controller.products.create(controller.product)">
+                                    <form ng-submit="pc.products.create(pc.product)">
                                     <td></td>
-                                    <td><input type="text" class="form-control form-control-sm " placeholder="Name" ng-model="controller.product.name"/></td>
+                                    <td><input type="text" class="form-control form-control-sm " placeholder="Name" ng-model="pc.product.name"/></td>
                                     <td>
                                         <div class="input-group input-group-sm">
                                             <span class="input-group-addon">&#8369</span>
-                                            <input type="number" class="form-control form-control-sm " min="0"  ng-model="controller.product.price"/>
+                                            <input type="number" class="form-control form-control-sm " min="0"  ng-model="pc.product.price"/>
                                         </div>
                                     </td>
                                     <td>
