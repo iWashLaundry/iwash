@@ -1,4 +1,4 @@
-app.controller("WorkflowController", function($http){
+app.controller("WorkflowController", function($http, $scope){
     var controller = this;
     this.order = {
         customer_email: '',
@@ -10,7 +10,8 @@ app.controller("WorkflowController", function($http){
         date_ordered: '',
         date_ready: '',
         date_started: '',
-        date_to_claim: ''
+        date_to_claim: '',
+        products: [],
     }
     
     this.orders = {
@@ -45,9 +46,14 @@ app.controller("WorkflowController", function($http){
             });
         },
         create: function(order){
+            order.date_ordered = new Date().toISOString().slice(0, 19).replace('T', ' ');
             $http.post('/api/orders/', order).then(function(response){
                 $("#new-order-modal").modal("hide");
+                controller.order = response.data;
                 controller.orders.getAll();
+                setTimeout(function(){
+                    controller.resetOrder();
+                }, 10000);
             });
         },
         update: function(order){
@@ -96,7 +102,25 @@ app.controller("WorkflowController", function($http){
         },
         readyToClaimed: function(orderId){
             controller.orders.updateStatus(orderId, 'ready', 'claimed');
-        }
+        },
+    }
+
+    this.resetOrder = function(){
+        $scope.$apply(function(){
+            controller.order = {
+                customer_email: '',
+                customer_first_name: '',
+                customer_id: '',
+                customer_last_name: '',
+                customer_phone: '',
+                date_claimed: '',
+                date_ordered: '',
+                date_ready: '',
+                date_started: '',
+                date_to_claim: '',
+                products: [],
+            }    
+        })
     }
 
     this.orders.getAll();

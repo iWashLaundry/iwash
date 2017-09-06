@@ -37,6 +37,7 @@ class OrderController extends Controller
         $order->customer_last_name = $data['customer_last_name'];
         $order->customer_email = $data['customer_email'];
         $order->customer_phone = $data['customer_phone'];
+        $order->date_ordered = $data['date_ordered'];
         $order->save();
 
         if(isset($data['order_products'])){
@@ -55,7 +56,7 @@ class OrderController extends Controller
                 }
             }    
         }
-        return;
+        return $order;
     }
     
     public function update(){
@@ -73,7 +74,7 @@ class OrderController extends Controller
         $order->date_ready = $data['date_ready'];
         $order->save();
 
-        return;
+        return $order;
     }
 
     public function delete($orderId){

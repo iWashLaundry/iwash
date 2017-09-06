@@ -1,8 +1,12 @@
 @extends('dashboard.main')
 @section('content')
-        <form>
+    <div ng-controller="WorkflowController as controller">
+        <form ng-submit="controller.orders.create(controller.order)">
             <div class="container mt-2"> 
-                <div class="row">           
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <h5 ng-show="controller.order.date_ordered" class="alert alert-success text-center">New order created. <a href="/dashboard/workflow">View here.</a></h3> 
+                    </div>           
                     <div class="col-md-6 col-lg-6">
                         <h3>New Bag</h3>
                         <div class="form-group">      
@@ -101,20 +105,24 @@
                     <div class="col-md-6 col-lg-6">
                         <h3>Customer Details</h3>
                         <div class="form-group">
-                            <input type="text" name="first_name" class="form-control" id="customer-first-name" placeholder="First name">
+                            <input type="text" name="first_name" class="form-control" id="customer-first-name" placeholder="First name" ng-model="controller.order.customer_first_name">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="last_name" class="form-control" id="customer-last-name" placeholder="Last name">
+                            <input type="text" name="last_name" class="form-control" id="customer-last-name" placeholder="Last name" ng-model="controller.order.customer_last_name">
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email" class="form-control" id="customer-email" placeholder="Email">
+                            <input type="email" name="email" class="form-control" id="customer-email" placeholder="Email" ng-model="controller.order.customer_email">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="phone" class="form-control" id="customer-phone" placeholder="Phone">
+                            <input type="text" name="phone" class="form-control" id="customer-phone" placeholder="Phone" ng-model="controller.order.customer_phone">
                         </div>
                         <button type="submit" class="btn btn-primary pull-right">Submit</button>
                     </div>
                 </div>
             </div>
         </form>
+    </div>
+@endsection
+@section('scripts')
+    <script src="{{ asset("js/dashboard/workflow/ng-controller-workflow.js")}}"></script>
 @endsection
