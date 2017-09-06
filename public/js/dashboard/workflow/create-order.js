@@ -18,12 +18,12 @@ $(document).ready(function(){
         $(this).parents('tr').remove();
     });
 
-    //adds new order to the workflows
-    $("#new-order-form").on('submit', function(e){
-        e.preventDefault();
-        var customerName = $("#customer-first-name").val() + " " + $("#customer-last-name").val();
-        add_new_order(customerName);
-        $("#new-order-modal").modal("hide");
-    });
+    // //adds new order to the workflows
+    // $("#new-order-form").on('submit', function(e){
+    //     e.preventDefault();
+    //     var customerName = $("#customer-first-name").val() + " " + $("#customer-last-name").val();
+    //     add_new_order(customerName);
+    //     $("#new-order-modal").modal("hide");
+    // });
 });
 

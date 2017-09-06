@@ -103,7 +103,7 @@
         </div>
 @endsection
 @section('scripts')
-    <!-- <script src="{{ asset("js/dashboard/workflow/create-order.js")}}"></script> -->
     <!-- <script src="{{ asset("js/dashboard/workflow/workflow.js")}}"></script> -->
+    <script src="{{ asset("js/dashboard/workflow/create-order.js")}}"></script>
     <script src="{{ asset("js/dashboard/workflow/ng-controller-workflow.js")}}"></script>
 @endsection

@@ -1,4 +1,4 @@
-                <div class="card mb-2">
+                <div class="card mb-2" ng-controller="ProductController as pc">
                     <div class="card-header">
                         <div class="row">
                             <div class="col-md-7">
@@ -14,21 +14,21 @@
                             <thead class="thead-inverse">
                                 <tr>
                                     <th width="5%">#</th>
-                                    <th width="30%">Product</th>
-                                    <th width="30%">Price</th>
+                                    <th width="25%">Product</th>
+                                    <th width="25%">Price</th>
                                     <th width="15%">Units</th>
-                                    <th width="15%">Updated</th>
+                                    <th width="20%">Updated</th>
                                     <th width="5%"><!--serves as padding--></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Colored</td>
+                                <tr ng-repeat="product in pc.products.all">
+                                    <td>@{{ $index + 1 }}</td>
+                                    <td>@{{ product.name }}</td>
                                     <td>
                                         <div class="input-group input-group-sm">
                                             <span class="input-group-addon">&#8369</span>
-                                            <input type="number" class="form-control form-control-sm " min="0"/>
+                                            <input type="number" class="form-control form-control-sm " min="0" ng-model="product.price"/>
                                         </div>
                                     </td>
                                     <td>
@@ -41,20 +41,20 @@
                                             <option>tsp</option>
                                         </select>
                                     </td>
-                                    <td>01/01/2017</td>
+                                    <td><small>@{{ product.created_at | date : format : "shortDate" }}<small></td>
                                     <td>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="pc.products.delete(product.product_id)">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </td>  
                                 </tr>
                                 <tr>
-                                    <td>2</td>
-                                    <td>White</td>
+                                    <form ng-submit="pc.products.create(pc.product)">
+                                    <td colspan="2"><input type="text" class="form-control form-control-sm " placeholder="Name" ng-model="pc.product.name"/></td>
                                     <td>
                                         <div class="input-group input-group-sm">
                                             <span class="input-group-addon">&#8369</span>
-                                            <input type="number" class="form-control form-control-sm " min="0"/>
+                                            <input type="number" class="form-control form-control-sm " min="0"  ng-model="pc.product.price"/>
                                         </div>
                                     </td>
                                     <td>
@@ -67,36 +67,10 @@
                                             <option>tsp</option>
                                         </select>
                                     </td>
-                                    <td>01/01/2017</td>
-                                    <td>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
+                                    <td colspan="2">
+                                        <button class="btn btn-primary btn-md" type="submit">Add</button>
                                     </td>  
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td><input type="text" class="form-control form-control-sm " placeholder="Name"/></td>
-                                    <td>
-                                        <div class="input-group input-group-sm">
-                                            <span class="input-group-addon">&#8369</span>
-                                            <input type="number" class="form-control form-control-sm " min="0"/>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <select class="form-control form-control-sm" id="select-unit-of-measurement">
-                                            <option>kg</option>
-                                            <option>lbs</option>
-                                            <option>pcs</option>
-                                            <option>cups</option>
-                                            <option>tbsp</option>
-                                            <option>tsp</option>
-                                        </select>
-                                    </td>
-                                    <td></td>
-                                    <td>
-                                        <button class="btn btn-primary btn-sm" type="button">Add</button>
-                                    </td>  
+                                    </form>
                                 </tr>
                             </tbody>
                         </table>

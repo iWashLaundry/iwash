@@ -37,25 +37,27 @@ class OrderController extends Controller
         $order->customer_last_name = $data['customer_last_name'];
         $order->customer_email = $data['customer_email'];
         $order->customer_phone = $data['customer_phone'];
+        $order->date_ordered = $data['date_ordered'];
         $order->save();
 
-        if(isset($data['order_products'])){
-            $order_products = json_decode($data['order_products']);
-            foreach($order_products as $temp_product){
-                $product = Product::where('product_id', '=', $temp_product->product_id)->first();
-                $price = Price::where('product_id', '=', $product->product_id)->first();
-                
-                if($product && $price){
-                    $order_product = new OrderProduct;
-                    $order_product->order_id = $order->order_id;
-                    $order_product->product_id = $product->product_id;
-                    $order_product->quantity = $temp_product->quantity;
-                    $order_product->price = $price->price;
-                    $order_product->save();
+        if(isset($data['products'])){
+            $order_products = $data['products'];
+            foreach($order_products as $index => $temp_product){
+                $product = Product::where('product_id', '=', $index)->first();
+                if($product){
+                    $price = Price::where('product_id', '=', $product->product_id)->first();                
+                    if($price){
+                        $order_product = new OrderProduct;
+                        $order_product->order_id = $order->order_id;
+                        $order_product->product_id = $product->product_id;
+                        $order_product->quantity = $temp_product;
+                        $order_product->price = $price->price;
+                        $order_product->save();
+                    }  
                 }
             }    
         }
-        return;
+        return $order;
     }
     
     public function update(){
@@ -73,12 +75,12 @@ class OrderController extends Controller
         $order->date_ready = $data['date_ready'];
         $order->save();
 
-        return;
+        return $order;
     }
 
-    public function delete($orderId){
-        $customer = Order::where('order_id','=', $orderId)->first();
-        $customer->delete();
+    public function delete($id){
+        $order = Order::where('order_id','=', $id)->first();
+        $order->delete();
 
         return;
     }
