@@ -3,7 +3,7 @@
 <head>
     @include('dashboard.components.header.head')
 </head>
-<body>
+<body ng-app="iWashDashboard">
     <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
     <!-- header.html -->
     @include('dashboard.components.header.header')

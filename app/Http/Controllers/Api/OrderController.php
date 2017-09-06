@@ -21,8 +21,12 @@ class OrderController extends Controller
         $this->middleware('auth');
     }
 
-    public function get(){
-        return Order::all();
+    public function get($id = null){
+        if(!$id){
+            return Order::all();            
+        }else{
+            return Order::where('order_id', '=', $id)->first();
+        }
     }
         
     public function create(){
@@ -51,7 +55,7 @@ class OrderController extends Controller
                 }
             }    
         }
-        return $order;
+        return;
     }
     
     public function update(){
@@ -62,16 +66,20 @@ class OrderController extends Controller
         $order->customer_last_name = $data['customer_last_name'];
         $order->customer_email = $data['customer_email'];
         $order->customer_phone = $data['customer_phone'];
+
+        $order->date_claimed = $data['date_claimed'];
+        $order->date_ordered = $data['date_ordered'];
+        $order->date_started = $data['date_started'];
+        $order->date_ready = $data['date_ready'];
         $order->save();
 
-        return $order;
+        return;
     }
 
-    public function delete(){
-        $data = Input::all();
-        $customer = Order::where('order_id','=', $data['order_id'])->first();
+    public function delete($orderId){
+        $customer = Order::where('order_id','=', $orderId)->first();
         $customer->delete();
 
-        return Customer::all();
+        return;
     }
 }

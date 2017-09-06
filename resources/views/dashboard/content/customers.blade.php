@@ -113,3 +113,6 @@
             </div>
         </div>
 @endsection
+@section('scripts')
+    <script src="{{ asset("js/dashboard/customers/ng-controller-customers.js")}}"></script>
+@endsection
