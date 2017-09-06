@@ -14,16 +14,16 @@
                             <thead class="thead-inverse">
                                 <tr>
                                     <th width="5%">#</th>
-                                    <th width="30%">Product</th>
-                                    <th width="30%">Price</th>
+                                    <th width="25%">Product</th>
+                                    <th width="25%">Price</th>
                                     <th width="15%">Units</th>
-                                    <th width="15%">Updated</th>
+                                    <th width="20%">Updated</th>
                                     <th width="5%"><!--serves as padding--></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr ng-repeat="product in pc.products.all">
-                                    <td>1</td>
+                                    <td>@{{ $index + 1 }}</td>
                                     <td>@{{ product.name }}</td>
                                     <td>
                                         <div class="input-group input-group-sm">
@@ -41,7 +41,7 @@
                                             <option>tsp</option>
                                         </select>
                                     </td>
-                                    <td>@{{ product.created_at | date : format : "shortDate" }}</td>
+                                    <td><small>@{{ product.created_at | date : format : "shortDate" }}<small></td>
                                     <td>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="pc.products.delete(product.product_id)">
                                             <span aria-hidden="true">&times;</span>
@@ -50,8 +50,7 @@
                                 </tr>
                                 <tr>
                                     <form ng-submit="pc.products.create(pc.product)">
-                                    <td></td>
-                                    <td><input type="text" class="form-control form-control-sm " placeholder="Name" ng-model="pc.product.name"/></td>
+                                    <td colspan="2"><input type="text" class="form-control form-control-sm " placeholder="Name" ng-model="pc.product.name"/></td>
                                     <td>
                                         <div class="input-group input-group-sm">
                                             <span class="input-group-addon">&#8369</span>
@@ -68,9 +67,8 @@
                                             <option>tsp</option>
                                         </select>
                                     </td>
-                                    <td></td>
-                                    <td>
-                                        <button class="btn btn-primary btn-sm" type="submit">Add</button>
+                                    <td colspan="2">
+                                        <button class="btn btn-primary btn-md" type="submit">Add</button>
                                     </td>  
                                     </form>
                                 </tr>

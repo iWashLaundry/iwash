@@ -43,7 +43,7 @@
                                         </select>
                                     </td>
                                     <td><input type="number" class="form-control form-control-sm " min="0"/></td>
-                                    <td>01/01/2017</td>
+                                    <td><small>01/01/2017</small></td>
                                     <td>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
@@ -70,7 +70,7 @@
                                         </select>
                                     </td>
                                     <td><input type="number" class="form-control form-control-sm " min="0"/></td>
-                                    <td>01/01/2017</td>
+                                    <td><small>01/01/2017</small></td>
                                     <td>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
@@ -78,8 +78,7 @@
                                     </td>  
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td><input type="text" class="form-control form-control-sm" placeholder="Name"/></td>
+                                    <td colspan="2"><input type="text" class="form-control form-control-sm" placeholder="Name"/></td>
                                     <td>
                                         <div class="input-group input-group-sm">
                                             <span class="input-group-addon">&#8369</span>
@@ -97,10 +96,9 @@
                                         </select>
                                     </td>
                                     <td><input type="number" class="form-control form-control-sm " min="0"/></td>
-                                    <td></td>
-                                    <td>
-                                        <button class="btn btn-primary btn-sm" type="button">Add</button>
-                                    </td>  
+                                    <td colspan="2">
+                                        <button class="btn btn-primary" type="button">Add</button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
