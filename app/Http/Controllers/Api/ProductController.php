@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 use App\Models\Product;
+use App\Models\Price;
 
 class ProductController extends Controller
 {
@@ -16,19 +18,61 @@ class ProductController extends Controller
         $this->middleware('auth');
     }
 
-    public function get(){
-        return Product::all();
+    public function get($id = null){
+        if(!$id){
+            return Product::allWithPrices();
+        }else{
+            return Product::getProductWithPrice($id);
+        }
     }
         
     public function create(){
-        return "Hello create";
+        $data = Input::all();
+
+        $product = new Product;
+        $product->name = $data['name'];
+        $product->save();
+
+        $price = new Price;
+        $price->product_id = $product->product_id;
+        $price->price = $data['price'];
+        $price->save();
+
+        return [
+            "product_id" => $product->product_id, 
+            "name" => $product->name,
+            "price" => $price->price
+        ];
     }
     
     public function update(){
-        return "Hello update";
+        $data = Input::all();
+        
+        $product = Product::where('product_id', '=', $data['product_id'])->first();
+        $product->name = $data['name'];
+        $product->save();
+        
+        $price = Price::where('product_id', '=', $product->product_id)->first();
+        $price->product_id = $product->product_id;
+        $price->price = $data['price'];
+        $price->save();
+        
+        return [
+            "product_id" => $product->product_id, 
+            "name" => $product->name,
+            "price" => $price->price
+        ];
     }
 
-    public function delete(){
-        return "Hello delete";
+    public function delete($id){
+        $order = Product::where('product_id','=', $id)->first();
+        $order->delete();
+
+        $prices = Price::where('product_id','=', $id)->get();
+        foreach($prices as $price){
+            $price->delete();            
+        }
+
+        return;
     }
 }

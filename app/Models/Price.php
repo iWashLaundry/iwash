@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Price extends Model
 {
     protected $table = "price";
-    protected $timestamps = false;
+    protected $primaryKey = "price_id";
+    public $timestamps = false;
 }

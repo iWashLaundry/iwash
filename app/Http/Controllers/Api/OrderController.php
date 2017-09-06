@@ -40,7 +40,7 @@ class OrderController extends Controller
         $order->date_ordered = $data['date_ordered'];
         $order->save();
 
-        if(isset($data['order_products'])){
+        if(isset($data['products'])){
             $order_products = json_decode($data['order_products']);
             foreach($order_products as $temp_product){
                 $product = Product::where('product_id', '=', $temp_product->product_id)->first();
@@ -77,9 +77,9 @@ class OrderController extends Controller
         return $order;
     }
 
-    public function delete($orderId){
-        $customer = Order::where('order_id','=', $orderId)->first();
-        $customer->delete();
+    public function delete($id){
+        $order = Order::where('order_id','=', $id)->first();
+        $order->delete();
 
         return;
     }
