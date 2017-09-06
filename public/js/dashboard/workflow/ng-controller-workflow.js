@@ -23,7 +23,9 @@ app.controller("WorkflowController", function($http){
             controller.orders.open = [];    
             
             angular.forEach(allOrders, function(order, key){
-                if(order.date_ready != "0000-00-00 00:00:00"){
+                if(order.date_claimed != "0000-00-00 00:00:00"){
+                    //do nothing
+                }else if(order.date_ready != "0000-00-00 00:00:00"){
                     controller.orders.ready.push(order)                    
                 }else if(order.date_started != "0000-00-00 00:00:00"){
                     controller.orders.inProgress.push(order);

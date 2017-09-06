@@ -91,7 +91,7 @@
                         <a href="#" data-toggle="modal" data-target="#order-modal">@{{ readyOrder.customer_first_name + ' ' + readyOrder.customer_last_name }}</a>
                     </div>
                     <div class="card-block">
-                        <a href="#" class="card-link btn btn-sm btn-secondary return-order" ng-click="controller.orders.readyToInProgree(readyOrder.order_id)">Return</a>
+                        <a href="#" class="card-link btn btn-sm btn-secondary return-order" ng-click="controller.orders.readyToInProgress(readyOrder.order_id)">Return</a>
                         <a href="#" class="card-link btn btn-sm btn-primary claim-order" ng-click="controller.orders.readyToClaimed(readyOrder.order_id)">Claimed</a>
                     </div>
                     <div class="card-footer">
@@ -103,7 +103,7 @@
         </div>
 @endsection
 @section('scripts')
-    <script src="{{ asset("js/dashboard/workflow/create-order.js")}}"></script>
-    <script src="{{ asset("js/dashboard/workflow/workflow.js")}}"></script>
+    <!-- <script src="{{ asset("js/dashboard/workflow/create-order.js")}}"></script> -->
+    <!-- <script src="{{ asset("js/dashboard/workflow/workflow.js")}}"></script> -->
     <script src="{{ asset("js/dashboard/workflow/ng-controller-workflow.js")}}"></script>
 @endsection
