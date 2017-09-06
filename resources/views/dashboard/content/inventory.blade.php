@@ -11,3 +11,6 @@
             </div>
         </div>
 @endsection
+@section('scripts')
+    <script src="{{ asset("js/dashboard/inventory/ng-controller-products.js")}}"></script>
+@endsection
