@@ -40,18 +40,18 @@ app.controller("WorkflowController", function($http, $scope){
             });
         },
         getAll: function(){
-            $http.get('/api/orders').then(function(response){
+            $http.get(urls.api_url + '/orders').then(function(response){
                 controller.orders.segregateOrders(response.data);
             });
         },
         get: function(orderId, successFunction){
-            $http.get('/api/orders/' + orderId).then(function(response){
+            $http.get(urls.api_url + '/orders/' + orderId).then(function(response){
                 successFunction(response.data);
             });
         },
         create: function(order){
             order.date_ordered = new Date().toISOString().slice(0, 19).replace('T', ' ');
-            $http.post('/api/orders/', order).then(function(response){
+            $http.post(urls.api_url + '/orders', order).then(function(response){
                 $("#new-order-modal").modal("hide");
                 controller.order = response.data;
                 controller.orders.getAll();
@@ -61,12 +61,12 @@ app.controller("WorkflowController", function($http, $scope){
             });
         },
         update: function(order){
-            $http.put('/api/orders/', order).then(function(response){
+            $http.put(urls.api_url + '/orders', order).then(function(response){
                 controller.orders.getAll();
             });
         },
         delete: function(orderId){
-            $http.delete('/api/orders/' + orderId).then(function(response){
+            $http.delete(urls.api_url + '/orders/' + orderId).then(function(response){
                 controller.orders.getAll();         
             });
         },
