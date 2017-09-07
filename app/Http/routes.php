@@ -37,42 +37,42 @@ Route::group(['prefix' => 'dashboard'], function(){
 
 Route::group(['prefix' => 'api'], function(){
     Route::group(['prefix' => 'customers'], function(){
-        Route::get('/{id?}', 'Api\CustomerController@get');
-        
         Route::post('/', 'Api\CustomerController@create');
         
         Route::put('/', 'Api\CustomerController@update');
-
+        
+        Route::get('/{id?}', 'Api\CustomerController@get');
+        
         Route::delete('/{id}', 'Api\CustomerController@delete');        
     });
 
     Route::group(['prefix' => 'inventory'], function(){
-        Route::get('/{id?}', 'Api\InventoryController@get');
-        
         Route::post('/', 'Api\InventoryController@create');
         
         Route::put('/', 'Api\InventoryController@update');
 
+        Route::get('/{id?}', 'Api\InventoryController@get');
+        
         Route::delete('/{id}', 'Api\InventoryController@delete');        
     });
 
     Route::group(['prefix' => 'orders'], function(){
-        Route::get('/{id?}', 'Api\OrderController@get');
-        
         Route::post('/', 'Api\OrderController@create');
         
         Route::put('/', 'Api\OrderController@update');
 
+        Route::get('/{id?}', 'Api\OrderController@get');
+        
         Route::delete('/{id}', 'Api\OrderController@delete');        
     });
 
     Route::group(['prefix' => 'products'], function(){
-        Route::get('/{id?}', 'Api\ProductController@get');
-        
         Route::post('/', 'Api\ProductController@create');
         
         Route::put('/', 'Api\ProductController@update');
 
+        Route::get('/{id?}', 'Api\ProductController@get');
+        
         Route::delete('/{id}', 'Api\ProductController@delete');        
     });
 });

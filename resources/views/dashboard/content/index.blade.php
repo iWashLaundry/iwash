@@ -5,7 +5,7 @@
             <div class="container mt-2"> 
                 <div class="row">
                     <div class="col-md-12 col-lg-12">
-                        <h5 ng-show="wc.order.date_ordered" class="alert alert-success text-center">New order created. <a href="/dashboard/workflow">View here.</a></h3> 
+                        <h5 ng-show="wc.order.date_ordered" class="alert alert-success text-center">New order created. <a href="{{ url('/dashboard/workflow') }}">View here.</a></h3> 
                     </div>           
                     <div class="col-md-6 col-lg-6" ng-controller="ProductController as pc">
                         <h3>New Bag</h3>
@@ -79,6 +79,6 @@
     </div>
 @endsection
 @section('scripts')
-    <script src="{{ asset("js/dashboard/inventory/ng-controller-products.js")}}"></script>
-    <script src="{{ asset("js/dashboard/workflow/ng-controller-workflow.js")}}"></script>
+    <script src="{{ asset('js/dashboard/inventory/ng-controller-products.js')}}"></script>
+    <script src="{{ asset('js/dashboard/workflow/ng-controller-workflow.js')}}"></script>
 @endsection
