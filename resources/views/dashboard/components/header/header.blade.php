@@ -7,31 +7,31 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item {{ isset($page) && $page == 'home' ? 'active' : '' }}">
-                        <a class="nav-link" href="/dashboard/home">
+                        <a class="nav-link" href="{{ url('/dashboard/home') }}">
                             <i class="fa fa-home fa-lg" aria-hidden="true"></i>
                             Home <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item {{ isset($page) && $page == 'workflow' ? 'active' : '' }}">
-                        <a class="nav-link" href="/dashboard/workflow">
+                        <a class="nav-link" href="{{ url('/dashboard/workflow') }}">
                             <i class="fa fa-play fa-lg" aria-hidden="true"></i>
                             Workflow
                         </a>
                     </li>
                     <li class="nav-item {{ isset($page) && $page == 'customers' ? 'active' : '' }}">
-                        <a class="nav-link" href="/dashboard/customers">
+                        <a class="nav-link" href="{{ url('/dashboard/customers') }}">
                             <i class="fa fa-male fa-lg" aria-hidden="true"></i>
                             Customers 
                         </a>
                     </li>
                     <li class="nav-item {{ isset($page) && $page == 'inventory' ? 'active' : '' }}">
-                        <a class="nav-link" href="/dashboard/inventory">
+                        <a class="nav-link" href="{{ url('/dashboard/inventory') }}">
                             <i class="fa fa-list fa-lg" aria-hidden="true"></i>
                             Inventory 
                         </a>
                     </li>
                     <li class="nav-item {{ isset($page) && $page == 'analytics' ? 'active' : '' }}">
-                        <a class="nav-link" href="/dashboard/analytics">
+                        <a class="nav-link" href="{{ url('/dashboard/analytics') }}">
                             <i class="fa fa-area-chart fa-lg" aria-hidden="true"></i>
                             Analytics 
                         </a>
@@ -45,8 +45,8 @@
                                 Account
                             </a>
                             <div class="dropdown-menu" aria-labelledby="accountDropdownMenuButton">
-                                <a class="dropdown-item" href="/dashboard/profile">Profile</a>
-                                <a class="dropdown-item" href="/logout">Logout</a>
+                                <a class="dropdown-item" href="{{ url('/dashboard/profile') }}">Profile</a>
+                                <a class="dropdown-item" href="{{ url('/logout') }}">Logout</a>
                             </div>
                         </div>
                             
