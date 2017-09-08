@@ -9,6 +9,9 @@ app.service('productService', ['iwashhttp', function(iwashhttp){
         all: [],
         getAll: function(){
             iwashhttp.get(urls.api_url + '/products', function(response){
+                for(var i=0; i < response.data.length; i++){
+                    response.data[i].price = parseInt(response.data[i].price);
+                }
                 productService.products.all = response.data;
             });
         },
