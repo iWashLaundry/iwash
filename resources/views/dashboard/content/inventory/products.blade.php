@@ -22,7 +22,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="product in pc.products.all">
+                                <tr ng-repeat="product in pc.productService.products.all">
                                     <td>@{{ $index + 1 }}</td>
                                     <td>@{{ product.name }}</td>
                                     <td>
@@ -43,18 +43,18 @@
                                     </td>
                                     <td><small>@{{ product.created_at | date : format : "shortDate" }}<small></td>
                                     <td>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="pc.products.delete(product.product_id)">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="pc.productService.products.delete(product.product_id)">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </td>  
                                 </tr>
                                 <tr>
-                                    <form ng-submit="pc.products.create(pc.product)">
-                                    <td colspan="2"><input type="text" class="form-control form-control-sm " placeholder="Name" ng-model="pc.product.name"/></td>
+                                    <form ng-submit="pc.productService.products.create(pc.productService.product)">
+                                    <td colspan="2"><input type="text" class="form-control form-control-sm " placeholder="Name" ng-model="pc.productService.product.name"/></td>
                                     <td>
                                         <div class="input-group input-group-sm">
                                             <span class="input-group-addon">&#8369</span>
-                                            <input type="number" class="form-control form-control-sm " min="0"  ng-model="pc.product.price"/>
+                                            <input type="number" class="form-control form-control-sm " min="0"  ng-model="pc.productService.product.price"/>
                                         </div>
                                     </td>
                                     <td>

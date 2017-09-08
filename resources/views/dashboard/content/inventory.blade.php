@@ -12,5 +12,6 @@
         </div>
 @endsection
 @section('scripts')
-    <script src="{{ asset("js/dashboard/inventory/ng-controller-products.js")}}"></script>
+    <script src="{{ asset('js/service/ng-service-products.js')}}"></script>
+    <script src="{{ asset('js/dashboard/inventory/ng-controller-products.js')}}"></script>
 @endsection
