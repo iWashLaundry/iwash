@@ -14,5 +14,6 @@
     </main>
     <!-- footer.html -->
     @include('dashboard.components.footer.footer')
+    @include('dashboard.modals.loading')
 </body>
 </html>

@@ -1,4 +1,4 @@
-app.controller("ProductController", function($http, $scope){
+app.controller("ProductController", function($http, $scope, iwashhttp){
     var controller = this;
     this.product = {
         name: '',
@@ -8,22 +8,22 @@ app.controller("ProductController", function($http, $scope){
     this.products = {
         all: [],
         getAll: function(){
-            $http.get(urls.api_url + '/products').then(function(response){
+            iwashhttp.get(urls.api_url + '/products', function(response){
                 controller.products.all = response.data;
             });
         },
         create: function(product){
-            $http.post(urls.api_url + '/products', product).then(function(response){
+            iwashhttp.post(urls.api_url + '/products', product, function(response){
                 controller.products.getAll();
             });
         },
         update: function(product){
-            $http.put(urls.api_url + '/products', product).then(function(response){
+            iwashhttp.put(urls.api_url + '/products', product, function(response){
                 controller.products.getAll();
             });
         },
         delete: function(productId){
-            $http.delete(urls.api_url + '/products/' + productId).then(function(response){
+            iwashhttp.delete(urls.api_url + '/products/' + productId, function(response){
                 controller.products.getAll();
             });
         },

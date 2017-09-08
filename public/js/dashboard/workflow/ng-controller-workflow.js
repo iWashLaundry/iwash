@@ -1,4 +1,4 @@
-app.controller("WorkflowController", function($http, $scope){
+app.controller("WorkflowController", function($http, $scope, iwashhttp){
     var controller = this;
     this.order = {
         customer_email: '',
@@ -14,7 +14,6 @@ app.controller("WorkflowController", function($http, $scope){
         products: [],
         updateProduct: function(productId, quantity){
             controller.order.products[productId] = quantity;
-            console.log(controller.order.products);
         },
     }
     
@@ -40,18 +39,18 @@ app.controller("WorkflowController", function($http, $scope){
             });
         },
         getAll: function(){
-            $http.get(urls.api_url + '/orders').then(function(response){
-                controller.orders.segregateOrders(response.data);
+            iwashhttp.get(urls.api_url + '/orders', function(response){
+               controller.orders.segregateOrders(response.data);  
             });
         },
         get: function(orderId, successFunction){
-            $http.get(urls.api_url + '/orders/' + orderId).then(function(response){
+            iwashhttp.get(urls.api_url + '/orders/' + orderId, function(response){
                 successFunction(response.data);
             });
         },
         create: function(order){
             order.date_ordered = new Date().toISOString().slice(0, 19).replace('T', ' ');
-            $http.post(urls.api_url + '/orders', order).then(function(response){
+            iwashhttp.post(urls.api_url + '/orders', order, function(response){
                 $("#new-order-modal").modal("hide");
                 controller.order = response.data;
                 controller.orders.getAll();
@@ -61,12 +60,12 @@ app.controller("WorkflowController", function($http, $scope){
             });
         },
         update: function(order){
-            $http.put(urls.api_url + '/orders', order).then(function(response){
+            iwashhttp.put(urls.api_url + '/orders', order, function(response){
                 controller.orders.getAll();
             });
         },
         delete: function(orderId){
-            $http.delete(urls.api_url + '/orders/' + orderId).then(function(response){
+            iwashhttp.delete(urls.api_url + '/orders/' + orderId, function(response){
                 controller.orders.getAll();         
             });
         },
