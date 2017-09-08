@@ -30,5 +30,26 @@ app.service('productService', ['iwashhttp', function(iwashhttp){
                 productService.products.getAll();
             });
         },
+        getTotalPrice: function(products){
+            var totalPrice = 0;
+            for(var i = 0; i < products.length; i++){
+                var index = productService.products.all.findIndex(product => product.product_id == i);
+                if(index >= 0){
+                  totalPrice += (products[i] * productService.products.all[index].price);   
+                }
+            }  
+            return totalPrice;
+        },
+        getTotalQuantity: function(products){
+            var totalQuantity = 0;
+            for(var i = 0; i < products.length; i++){
+              if(products[i]){
+                totalQuantity += parseInt(products[i]);                
+              }
+            }  
+            return totalQuantity;
+        }
+      
+      
     }  
 }]);
