@@ -25,14 +25,14 @@
                                                 <td class='option-name'>@{{ product.name }}</td>
                                                 <td>
                                                     <div class="input-group">
-                                                        <input type='number' class="form-control" value='0' min="0" ng-model="wc.orderService.order.products[product.product_id]"/>
+                                                        <input type='number' class="form-control" min="0" ng-model="wc.orderService.order.products[product.product_id]"/>
                                                         <span class="input-group-addon">kg</span>    
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div class="input-group">
                                                         <span class="input-group-addon">&#8369</span>    
-                                                        <input type='number' class="form-control" value='0' min="0" ng-value="product.price * wc.orderService.order.products[product.product_id]" disabled/>
+                                                        <input type='number' class="form-control" min="0" ng-value="product.price * wc.orderService.order.products[product.product_id]" disabled/>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -40,14 +40,14 @@
                                                 <td class='option-name'>Total</td>
                                                 <td>
                                                     <div class="input-group">
-                                                        <input type='number' class="form-control" value='0' min="0" ng-value="pc.productService.products.getTotalQuantity(wc.orderService.order.products)" disabled/>
+                                                        <input type='number' class="form-control" min="0" ng-value="pc.productService.products.getTotalQuantity(wc.orderService.order.products)" disabled/>
                                                         <span class="input-group-addon">kg</span>    
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div class="input-group">
                                                         <span class="input-group-addon">&#8369</span>    
-                                                        <input type='number' class="form-control" value='0' min="0" ng-value="pc.productService.products.getTotalPrice(wc.orderService.order.products)" disabled/>
+                                                        <input type='number' class="form-control" min="0" ng-value="pc.productService.products.getTotalPrice(wc.orderService.order.products)" disabled/>
                                                     </div>
                                                 </td>
                                             </tr>

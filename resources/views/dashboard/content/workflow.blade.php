@@ -9,49 +9,8 @@
                 </div>
                 <div class="card mb-2" ng-repeat="openOrder in wc.orderService.orders.open">
                     <div class="card-header">
-                        <a href="#" data-toggle="modal" data-target="#order-modal">@{{ openOrder.customer_first_name + ' ' + openOrder.customer_last_name }}</a>
+                        <a href="#" data-toggle="modal" data-target="#order-modal" ng-click="wc.orderService.order = openOrder">@{{ openOrder.customer_first_name + ' ' + openOrder.customer_last_name }}</a>
                     </div>
-                    <!-- Start Order Details Modal -->
-                    <div class="modal fade" id="order-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Customer Name</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <dl class="row">
-                                        <dt class="col-sm-7">ID</dt>
-                                        <dd class="col-sm-5 text-right">09999</dd>
-
-                                        <dt class="col-sm-7">Weight</dt>
-                                        <dd class="col-sm-5 text-right">3kg</dd>
-                                        
-                                        <dt class="col-sm-7">Whites</dt>
-                                        <dd class="col-sm-5 text-right">5</dd>
-                                        
-                                        <dt class="col-sm-7">Colored</dt>
-                                        <dd class="col-sm-5 text-right">2</dd>
-                                    
-                                        <dt class="col-sm-7">Due Date</dt>
-                                        <dd class="col-sm-5 text-right">02/02/17</dd>
-
-                                        <dt class="col-sm-7">Amount</dt>
-                                        <dd class="col-sm-5 text-right">P90.00</dd>
-
-                                        <dt class="col-sm-7">Status</dt>
-                                        <dd class="col-sm-5 text-right">Paid</dd>
-                                    </dl>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger remove-order">Cancel Order</button>
-                                    <button type="button" class="btn btn-primary wash-order">Wash</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- end item details modal -->
                     <div class="card-block">
                         <a href="#" class="card-link btn btn-sm btn-danger cancel-order" ng-click="wc.orderService.orders.delete(openOrder.order_id)">Cancel</a>
                         <a href="#" class="card-link btn btn-sm btn-primary wash-order" ng-click="wc.orderService.orders.newToInProgress(openOrder.order_id)">Wash</a>
@@ -69,7 +28,7 @@
                 </div>
                 <div class="card mb-2" ng-repeat="inProgressOrder in wc.orderService.orders.inProgress">
                     <div class="card-header">
-                        <a href="#" data-toggle="modal" data-target="#order-modal">@{{ inProgressOrder.customer_first_name + ' ' + inProgressOrder.customer_last_name }}</a>
+                        <a href="#" data-toggle="modal" data-target="#order-modal" ng-click="wc.orderService.order = inProgressOrder">@{{ inProgressOrder.customer_first_name + ' ' + inProgressOrder.customer_last_name }}</a>
                     </div>
                     <div class="card-block">
                         <a href="#" class="card-link btn btn-sm btn-secondary return-order" ng-click="wc.orderService.orders.inProgressToNew(inProgressOrder.order_id)">Return</a>
@@ -88,7 +47,7 @@
                 </div>
                 <div class="card mb-2" ng-repeat="readyOrder in wc.orderService.orders.ready">
                     <div class="card-header">
-                        <a href="#" data-toggle="modal" data-target="#order-modal">@{{ readyOrder.customer_first_name + ' ' + readyOrder.customer_last_name }}</a>
+                        <a href="#" data-toggle="modal" data-target="#order-modal" ng-click="wc.orderService.order = readyOrder">@{{ readyOrder.customer_first_name + ' ' + readyOrder.customer_last_name }}</a>
                     </div>
                     <div class="card-block">
                         <a href="#" class="card-link btn btn-sm btn-secondary return-order" ng-click="wc.orderService.orders.readyToInProgress(readyOrder.order_id)">Return</a>
@@ -99,6 +58,7 @@
                     </div>
                 </div>
             </div>
+            @include('dashboard.modals.workflow-view-order')
             @include('dashboard.modals.create-order')
         </div>
 @endsection

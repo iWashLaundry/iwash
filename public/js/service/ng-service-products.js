@@ -34,7 +34,7 @@ app.service('productService', ['iwashhttp', function(iwashhttp){
             var totalPrice = 0;
             for(var i = 0; i < products.length; i++){
                 var index = productService.products.all.findIndex(product => product.product_id == i);
-                if(index >= 0){
+                if(products[i] && productService.products.all[index]){
                   totalPrice += (products[i] * productService.products.all[index].price);   
                 }
             }  
@@ -49,7 +49,5 @@ app.service('productService', ['iwashhttp', function(iwashhttp){
             }  
             return totalQuantity;
         }
-      
-      
     }  
 }]);

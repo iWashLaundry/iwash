@@ -11,6 +11,8 @@ app.service('orderService', ['iwashhttp', function(iwashhttp) {
     date_ready: '',
     date_started: '',
     date_to_claim: '',
+    total_price: '',
+    total_quantity: '',
     products: [],
     updateProduct: function(productId, quantity) {
       orderService.order.products[productId] = quantity;
@@ -29,7 +31,7 @@ app.service('orderService', ['iwashhttp', function(iwashhttp) {
         date_to_claim: '',
         products: [],
       }
-    }
+    },
   }
 
   this.orders = {
@@ -121,5 +123,21 @@ app.service('orderService', ['iwashhttp', function(iwashhttp) {
     readyToClaimed: function(orderId) {
       orderService.orders.updateStatus(orderId, 'ready', 'claimed');
     },
+  }
+
+  this.getTotalPrice = function(products){
+    var totalPrice = 0;
+    for(var i = 0; i < products.length; i++){
+      totalPrice += (products[i].quantity * products[i].price);   
+    }  
+    return totalPrice;
+  }
+  
+  this.getTotalQuantity = function(products){
+    var totalQuantity = 0;
+    for(var i = 0; i < products.length; i++){
+      totalQuantity += products[i].quantity;   
+    }  
+    return totalQuantity;
   }
 }]);

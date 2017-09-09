@@ -23,7 +23,14 @@ class OrderController extends Controller
 
     public function get($id = null){
         if(!$id){
-            return Order::all();            
+            $orders = Order::where('date_claimed', '=', '0000-00-00 00:00:00')->get();
+            foreach($orders as $index => $order){
+                $products = OrderProduct::where('order_product.order_id', '=', $order->order_id)
+                ->join('product', 'product.product_id', '=', 'order_product.product_id')
+                ->get();
+                $orders[$index]->products = $products;
+            }
+            return $orders;
         }else{
             return Order::where('order_id', '=', $id)->first();
         }
