@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -16,19 +17,38 @@ class InventoryController extends Controller
         $this->middleware('auth');
     }
 
-    public function get(){
-        return Item::all();
+    public function get($id = null){
+        if(!$id){
+            return Item::all();            
+        }else{
+            return Item::where('item_id', '=', $id)->first();
+        }
     }
         
     public function create(){
-        return "Hello create";
+        $data = Input::all();
+
+        $item = new Item;
+        $item->name = $data['name'];
+        $item->save();
+
+        return;
     }
     
     public function update(){
-        return "Hello update";
+        $data = Input::all();
+
+        $item = Item::where('item_id', '=', $id)->first();
+        $item->name = $data['name'];
+        $item->save();
+        
+        return;
     }
 
-    public function delete(){
-        return "Hello delete";
+    public function delete($id){
+        $item = Item::where('item_id', '=', $id)->first();
+        $item->delete();
+
+        return;
     }
 }

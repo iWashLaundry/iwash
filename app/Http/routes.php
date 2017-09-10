@@ -46,7 +46,7 @@ Route::group(['prefix' => 'api'], function(){
         Route::delete('/{id}', 'Api\CustomerController@delete');        
     });
 
-    Route::group(['prefix' => 'inventory'], function(){
+    Route::group(['prefix' => 'items'], function(){
         Route::post('/', 'Api\InventoryController@create');
         
         Route::put('/', 'Api\InventoryController@update');

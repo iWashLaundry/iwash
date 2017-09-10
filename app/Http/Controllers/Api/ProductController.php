@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Input;
 use App\Models\Product;
 use App\Models\Price;
 
@@ -65,8 +65,8 @@ class ProductController extends Controller
     }
 
     public function delete($id){
-        $order = Product::where('product_id','=', $id)->first();
-        $order->delete();
+        $product = Product::where('product_id','=', $id)->first();
+        $product->delete();
 
         $prices = Price::where('product_id','=', $id)->get();
         foreach($prices as $price){

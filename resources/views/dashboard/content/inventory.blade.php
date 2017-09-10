@@ -6,12 +6,14 @@
                     @include("dashboard.content.inventory.products")
                 </div>
                 <div class="col-md-6">
-                    @include("dashboard.content.inventory.miscellaneous")
+                    @include("dashboard.content.inventory.items")
                 </div>
             </div>
         </div>
 @endsection
 @section('scripts')
+    <script src="{{ asset('js/service/ng-service-items.js')}}"></script>
+    <script src="{{ asset('js/dashboard/inventory/ng-controller-items.js')}}"></script>
     <script src="{{ asset('js/service/ng-service-products.js')}}"></script>
     <script src="{{ asset('js/dashboard/inventory/ng-controller-products.js')}}"></script>
 @endsection
