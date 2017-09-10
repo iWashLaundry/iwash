@@ -1,91 +1,36 @@
 @extends('dashboard.main')
 @section('content')
-        <div class="row">
+        <div class="row" ng-controller="CustomerController as cc">
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-header">
                         <input type="text" class="form-control" placeholder="Search"/>
                     </div>
                     <div class="card-block">
-                        <button class="btn btn-primary form-control" data-toggle="modal" data-target="#myModal">Add</button>
-                        <!-- Modal -->
-                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Add Customer</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="form-group row">
-                                            <label for="example-text-input" class="col-4 col-form-label">Name</label>
-                                            <div class="col-8">
-                                                <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="example-text-input" class="col-4 col-form-label">Last Name</label>
-                                            <div class="col-8">
-                                                <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="example-text-input" class="col-4 col-form-label">Telephone</label>
-                                            <div class="col-8">
-                                                <input class="form-control" type="tel" value="1-(555)-555-5555" id="example-text-input">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="example-email-input" class="col-4 col-form-label">Email</label>
-                                            <div class="col-8">
-                                                <input class="form-control" type="email" value="bootstrap@example.com" id="example-email-input">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                        <button type="button" class="btn btn-primary">Submit</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <button class="btn btn-primary form-control" data-toggle="modal" data-target="#new-customer-modal">Add</button>
                         <div class="list-group">
-                            <a href="#" class="list-group-item list-group-action">
-                                Jason Derulo 
-                            </a>
-                            <a href="#" class="list-group-item list-group-action">
-                                Bruce Willis
-                            </a>
-                            <a href="#" class="list-group-item list-group-action">
-                                Pok Wang
-                            </a>
-                            <a href="#" class="list-group-item list-group-action">
-                                Lebron James
-                            </a>
-                            <a href="#" class="list-group-item list-group-action">
-                                Wardell Stephen Curry II
+                            <a href="#" class="list-group-item list-group-action" ng-repeat="existingCustomer in cc.customerService.customers.all" ng-click="cc.customerService.customer = existingCustomer">
+                                @{{ existingCustomer.first_name + ' ' + existingCustomer.last_name }}
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8" ng-show="cc.customerService.customer.first_name">
                 <div class="card mt-3">
                     <div class="card-block"> 
                         <dl class="row">
                             <dt class="col-sm-3 col-md-3">ID</dt>
-                            <dd class="col-sm-3 col-md-9">09999</dd>
+                            <dd class="col-sm-3 col-md-9">@{{ cc.customerService.customer.customer_id }}</dd>
                         
                             <dt class="col-sm-3 col-md-3">First Name</dt>
-                            <dd class="col-sm-3 col-md-3">Jason</dd>
+                            <dd class="col-sm-3 col-md-3">@{{ cc.customerService.customer.first_name }}</dd>
                                     
                             <dt class="col-sm-3 col-md-3">Last Name</dt>
-                            <dd class="col-sm-3 col-md-3">Derulo</dd>
+                            <dd class="col-sm-3 col-md-3">@{{ cc.customerService.customer.last_name }}</dd>
                                     
                             <dt class="col-sm-3 col-md-3">Customer Since</dt>
-                            <dd class="col-sm-3 col-md-3">02/02/17</dd>
+                            <dd class="col-sm-3 col-md-3">@{{ cc.customerService.customer.created_at }}</dd>
                             
                             <dt class="col-sm-3 col-md-3">Orders Claimed</dt>
                             <dd class="col-sm-3 col-md-3">2</dd>                                
@@ -111,8 +56,10 @@
                     </div>
                 </div>
             </div>
+            @include('dashboard.modals.create-customer')
         </div>
 @endsection
 @section('scripts')
-    <script src="{{ asset("js/dashboard/customers/ng-controller-customers.js")}}"></script>
+    <script src="{{ asset("js/service/ng-service-customers.js") }}"></script>
+    <script src="{{ asset("js/dashboard/customers/ng-controller-customers.js") }}"></script>
 @endsection
