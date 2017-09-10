@@ -40,6 +40,7 @@ class OrderController extends Controller
         $data = Input::all();
         
         $order = new Order;
+        $order->customer_id = isset($data['customer_id']) ? $data['customer_id'] : 0;
         $order->customer_first_name = $data['customer_first_name'];
         $order->customer_last_name = $data['customer_last_name'];
         $order->customer_email = $data['customer_email'];

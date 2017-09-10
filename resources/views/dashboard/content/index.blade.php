@@ -59,8 +59,11 @@
                     </div>
                     <div class="col-md-6 col-lg-6">
                         <h3>Customer Details</h3>
-                        <div class="form-group">
-                            <input type="text" name="first_name" class="form-control" id="customer-first-name" placeholder="First name" ng-model="wc.orderService.order.customer_first_name">
+                        <div class="form-group" ng-controller="CustomerController as cc">
+                            <input type="text" name="first_name" autocomplete="off" class="form-control" id="customer-first-name" placeholder="First name" ng-model="wc.orderService.order.customer_first_name" ng-change="wc.showDropdown = true">
+                            <div class="dropdown-menu" id="customer-firstname-dropdown" ng-show="wc.showDropdown" outside-click="wc.showDropdown = false" style="display: block; top: auto; left: auto; width: 95%;">
+                                <a class="dropdown-item" href="#" ng-repeat="existingCustomer in cc.customerService.customers.all" ng-click="wc.orderService.order.fillCustomer(existingCustomer)">@{{ existingCustomer.first_name + ' ' + existingCustomer.last_name }}</a>
+                            </div>
                         </div>
                         <div class="form-group">
                             <input type="text" name="last_name" class="form-control" id="customer-last-name" placeholder="Last name" ng-model="wc.orderService.order.customer_last_name">
@@ -81,6 +84,8 @@
 @section('scripts')
     <script src="{{ asset('js/service/ng-service-products.js')}}"></script>
     <script src="{{ asset('js/service/ng-service-orders.js')}}"></script>
+    <script src="{{ asset('js/service/ng-service-customers.js')}}"></script>
     <script src="{{ asset('js/dashboard/inventory/ng-controller-products.js')}}"></script>
     <script src="{{ asset('js/dashboard/workflow/ng-controller-workflow.js')}}"></script>
+    <script src="{{ asset('js/dashboard/customers/ng-controller-customers.js')}}"></script>
 @endsection

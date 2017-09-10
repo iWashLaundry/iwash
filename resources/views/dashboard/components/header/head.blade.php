@@ -3,4 +3,5 @@
 <script src="https://use.fontawesome.com/f6bf194cbc.js"></script>
 <script src="{{ asset('js/angular.min.js') }}"></script>
 <script src="{{ asset('js/dashboard/ng-module-dashboard.js') }}"></script>
+<script src="{{ asset('js/dashboard/ng-directives-dashboard.js') }}"></script>
 <script src="{{ asset('js/service/ng-service-iwash-http.js') }}"></script>

@@ -1,10 +1,10 @@
 app.service('orderService', ['iwashhttp', function(iwashhttp) {
   var orderService = this;
   this.order = {
-    customer_email: '',
-    customer_first_name: '',
     customer_id: '',
+    customer_first_name: '',
     customer_last_name: '',
+    customer_email: '',
     customer_phone: '',
     date_claimed: '',
     date_ordered: '',
@@ -18,20 +18,26 @@ app.service('orderService', ['iwashhttp', function(iwashhttp) {
       orderService.order.products[productId] = quantity;
     },
     resetOrder: function() {
-      orderService.order = {
-        customer_email: '',
-        customer_first_name: '',
-        customer_id: '',
-        customer_last_name: '',
-        customer_phone: '',
-        date_claimed: '',
-        date_ordered: '',
-        date_ready: '',
-        date_started: '',
-        date_to_claim: '',
-        products: [],
-      }
+      orderService.order.customer_id = '';
+      orderService.order.customer_first_name = '';
+      orderService.order.customer_last_name = '';
+      orderService.order.customer_email = '';
+      orderService.order.customer_phone = '';
+      orderService.order.date_claimed = '';
+      orderService.order.date_ordered = '';
+      orderService.order.date_ready = '';
+      orderService.order.date_started = '';
+      orderService.order.date_to_claim = '';
+      orderService.order.products = [];
+    
     },
+    fillCustomer: function(customer){
+      orderService.order.customer_id = customer.customer_id;
+      orderService.order.customer_first_name = customer.first_name;
+      orderService.order.customer_last_name = customer.last_name;
+      orderService.order.customer_email = customer.email;
+      orderService.order.customer_phone = customer.phone;
+    }
   }
 
   this.orders = {
@@ -69,7 +75,6 @@ app.service('orderService', ['iwashhttp', function(iwashhttp) {
       order.date_ordered = new Date().toISOString().slice(0, 19).replace('T', ' ');
       iwashhttp.post(urls.api_url + '/orders', order, function(response) {
         $("#new-order-modal").modal("hide");
-        orderService.order = response.data;
         orderService.orders.getAll();
         setTimeout(function() {
           orderService.order.resetOrder();

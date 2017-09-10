@@ -12,7 +12,6 @@ app.service('itemService', ['iwashhttp', function(iwashhttp){
             });
         },
         create: function(item){
-            console.log(item);
             iwashhttp.post(urls.api_url + '/items', item, function(response){
                 itemService.items.getAll();
             });

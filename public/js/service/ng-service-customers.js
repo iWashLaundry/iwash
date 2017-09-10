@@ -15,7 +15,6 @@ app.service('customerService', ['iwashhttp', function(iwashhttp){
             });
         },
         create: function(customer){
-            console.log(customer);
             iwashhttp.post(urls.api_url + '/customers', customer, function(response){
                 customerService.customers.getAll();
                 $('#new-customer-modal').modal('hide');

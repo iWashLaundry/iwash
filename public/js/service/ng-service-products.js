@@ -31,23 +31,27 @@ app.service('productService', ['iwashhttp', function(iwashhttp){
             });
         },
         getTotalPrice: function(products){
-            var totalPrice = 0;
-            for(var i = 0; i < products.length; i++){
-                var index = productService.products.all.findIndex(product => product.product_id == i);
-                if(products[i] && productService.products.all[index]){
-                  totalPrice += (products[i] * productService.products.all[index].price);   
-                }
-            }  
-            return totalPrice;
+            if(products){
+                var totalPrice = 0;
+                for(var i = 0; i < products.length; i++){
+                    var index = productService.products.all.findIndex(product => product.product_id == i);
+                    if(products[i] && productService.products.all[index]){
+                      totalPrice += (products[i] * productService.products.all[index].price);   
+                    }
+                }  
+                return totalPrice;    
+            }
         },
         getTotalQuantity: function(products){
-            var totalQuantity = 0;
-            for(var i = 0; i < products.length; i++){
-              if(products[i]){
-                totalQuantity += parseInt(products[i]);                
-              }
-            }  
-            return totalQuantity;
+            if(products){
+                var totalQuantity = 0;
+                for(var i = 0; i < products.length; i++){
+                  if(products[i]){
+                    totalQuantity += parseInt(products[i]);                
+                  }
+                }  
+                return totalQuantity;    
+            }
         }
     }  
 }]);
