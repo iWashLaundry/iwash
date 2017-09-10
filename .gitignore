@@ -6,3 +6,5 @@ Homestead.json
 .env
 config/app.php
 public/js/dashboard/dashboard.js
+
+public/js/dashboard/dashboard.js
