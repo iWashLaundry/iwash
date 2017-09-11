@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost/iwash/public'),
+    'url' => env('APP_URL', 'http://iwash-nodazra679786.codeanyapp.com/public'),
 
     /*
     |--------------------------------------------------------------------------
