@@ -88,6 +88,4 @@
 <script src="{{ asset('js/dashboard/inventory/ng-controller-products.js') }}"></script>
 <script src="{{ asset('js/dashboard/workflow/ng-controller-workflow.js') }}"></script>
 <script src="{{ asset('js/dashboard/customers/ng-controller-customers.js') }}"></script>
-@endsection 
-@section('styles')
-<link rel="stylesheet" href="{{ asset('css/dashboard/page-home.css') }}" /> @endsection
+@endsection

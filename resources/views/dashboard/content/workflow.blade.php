@@ -10,8 +10,8 @@
     <div class="card mb-2" ng-repeat="openOrder in wc.orderService.orders.open">
       <div class="card-header">
         <a href="#" data-toggle="modal" data-target="#order-modal" ng-click="wc.orderService.order = openOrder">
-                          @{{ openOrder.customer_first_name + ' ' + openOrder.customer_last_name }} @{{ openOrder.customer_id > 0 ? '' : '(Unregistered)' }}
-                        </a>
+          @{{ openOrder.customer_first_name + ' ' + openOrder.customer_last_name }} @{{ openOrder.customer_id > 0 ? '' : '(Unregistered)' }}
+        </a>
       </div>
       <div class="card-block">
         <a href="#" class="card-link btn btn-sm btn-danger cancel-order" ng-click="wc.orderService.orders.delete(openOrder.order_id)">Cancel</a>
@@ -31,8 +31,8 @@
     <div class="card mb-2" ng-repeat="inProgressOrder in wc.orderService.orders.inProgress">
       <div class="card-header">
         <a href="#" data-toggle="modal" data-target="#order-modal" ng-click="wc.orderService.order = inProgressOrder">
-                          @{{ inProgressOrder.customer_first_name + ' ' + inProgressOrder.customer_last_name }}  @{{ inProgressOrder.customer_id > 0 ? '' : '(Unregistered)' }}
-                        </a>
+          @{{ inProgressOrder.customer_first_name + ' ' + inProgressOrder.customer_last_name }}  @{{ inProgressOrder.customer_id > 0 ? '' : '(Unregistered)' }}
+        </a>
       </div>
       <div class="card-block">
         <a href="#" class="card-link btn btn-sm btn-secondary return-order" ng-click="wc.orderService.orders.inProgressToNew(inProgressOrder.order_id)">Return</a>
@@ -52,8 +52,8 @@
     <div class="card mb-2" ng-repeat="readyOrder in wc.orderService.orders.ready">
       <div class="card-header">
         <a href="#" data-toggle="modal" data-target="#order-modal" ng-click="wc.orderService.order = readyOrder">
-                          @{{ readyOrder.customer_first_name + ' ' + readyOrder.customer_last_name }}  @{{ readyOrder.customer_id > 0 ? '' : '(Unregistered)' }}
-                        </a>
+          @{{ readyOrder.customer_first_name + ' ' + readyOrder.customer_last_name }}  @{{ readyOrder.customer_id > 0 ? '' : '(Unregistered)' }}
+        </a>
       </div>
       <div class="card-block">
         <a href="#" class="card-link btn btn-sm btn-secondary return-order" ng-click="wc.orderService.orders.readyToInProgress(readyOrder.order_id)">Return</a>
@@ -69,8 +69,10 @@
 </div>
 @endsection 
 @section('scripts')
-<!-- <script src="{{ asset("js/dashboard/workflow/workflow.js")}}"></script> -->
-<script src="{{ asset('js/dashboard/workflow/create-order.js')}}"></script>
-<script src="{{ asset('js/service/ng-service-orders.js')}}"></script>
-<script src="{{ asset('js/dashboard/workflow/ng-controller-workflow.js')}}"></script>
+<script src="{{ asset('js/service/ng-service-products.js') }}"></script>
+<script src="{{ asset('js/service/ng-service-orders.js') }}"></script>
+<script src="{{ asset('js/service/ng-service-customers.js') }}"></script>
+<script src="{{ asset('js/dashboard/inventory/ng-controller-products.js') }}"></script>
+<script src="{{ asset('js/dashboard/workflow/ng-controller-workflow.js') }}"></script>
+<script src="{{ asset('js/dashboard/customers/ng-controller-customers.js') }}"></script>
 @endsection
