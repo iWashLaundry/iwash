@@ -133,7 +133,7 @@ app.service('orderService', ['iwashhttp', function(iwashhttp) {
   this.getTotalPrice = function(products){
     var totalPrice = 0;
     for(var i = 0; i < products.length; i++){
-      totalPrice += (products[i].quantity * products[i].price);   
+      totalPrice += (products[i].quantity * products[i].price);  
     }  
     return totalPrice;
   }
@@ -141,7 +141,7 @@ app.service('orderService', ['iwashhttp', function(iwashhttp) {
   this.getTotalQuantity = function(products){
     var totalQuantity = 0;
     for(var i = 0; i < products.length; i++){
-      totalQuantity += products[i].quantity;   
+      totalQuantity += parseInt(products[i].quantity);   
     }  
     return totalQuantity;
   }

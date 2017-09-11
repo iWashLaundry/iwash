@@ -4,12 +4,12 @@
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-header">
-                        <input type="text" class="form-control" placeholder="Search"/>
+                        <input type="text" class="form-control" placeholder="Search" ng-model="cc.customers.search"/>
                     </div>
                     <div class="card-block">
                         <button class="btn btn-primary form-control" data-toggle="modal" data-target="#new-customer-modal">Add</button>
                         <div class="list-group">
-                            <a href="#" class="list-group-item list-group-action" ng-repeat="existingCustomer in cc.customerService.customers.all" ng-click="cc.customerService.customer = existingCustomer">
+                            <a href="#" class="list-group-item list-group-action" ng-repeat="existingCustomer in cc.customerService.customers.all | filter : cc.customers.search" ng-click="cc.customerService.customer = existingCustomer">
                                 @{{ existingCustomer.first_name + ' ' + existingCustomer.last_name }}
                             </a>
                         </div>
@@ -20,7 +20,7 @@
                 <div class="card mt-3">
                     <div class="card-block"> 
                         <dl class="row">
-                            <dt class="col-sm-3 col-md-3">ID</dt>
+                            <dt class="col-sm-3 col-md-3">Customer ID</dt>
                             <dd class="col-sm-3 col-md-9">@{{ cc.customerService.customer.customer_id }}</dd>
                         
                             <dt class="col-sm-3 col-md-3">First Name</dt>
@@ -33,25 +33,19 @@
                             <dd class="col-sm-3 col-md-3">@{{ cc.customerService.customer.created_at }}</dd>
                             
                             <dt class="col-sm-3 col-md-3">Orders Claimed</dt>
-                            <dd class="col-sm-3 col-md-3">2</dd>                                
-                            
-                            <dt class="col-sm-3 col-md-3">Last Visit</dt>
-                            <dd class="col-sm-3 col-md-3">02/05/17</dd>
+                            <dd class="col-sm-3 col-md-3">@{{ cc.customerService.customer.orders_claimed }}</dd>                                
                             
                             <dt class="col-sm-3 col-md-3">No of Visits</dt>
-                            <dd class="col-sm-3 col-md-3">3</dd>                                
+                            <dd class="col-sm-3 col-md-3">@{{ cc.customerService.customer.visits }}</dd>                                
                         </dl>
                     </div>
                     <div class="card-block">
                         <dl class="row">        
                             <dt class="col-sm-3 col-md-3">Current Order</dt>
-                            <dd class="col-sm-9 col-md-9">09999</dd>
-
-                            <dt class="col-sm-3 col-md-3">Current Order Status</dt>
-                            <dd class="col-sm-9 col-md-9">Wash</dd>
-
+                            <dd class="col-sm-9 col-md-9">@{{ cc.customerService.customer.current_order.order_id }}</dd>
+                            
                             <dt class="col-sm-3">Current Order Due Date</dt>
-                            <dd class="col-sm-9">02/06/17</dd>    
+                            <dd class="col-sm-9">@{{ cc.customerService.customer.current_order.date_to_claim }}</dd>    
                         </dl>
                     </div>
                 </div>

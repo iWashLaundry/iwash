@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Input;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
+use App\Models\Order;
 
 class CustomerController extends Controller
 {
@@ -17,9 +18,19 @@ class CustomerController extends Controller
         $this->middleware('auth');
     }
 
-    public function get(){
-        //return csrf_token();
-        return Customer::all();
+    public function get($id = null){
+        $customers = Customer::all();
+        foreach($customers as $index => $customer){
+          $orders = Order::where('customer_id', '=', $customer->customer_id)->get();
+          if($orders->count()){
+            $orders_claimed = Order::where('customer_id', '=', $customer->customer_id)->where('date_claimed', '!=', '0000-00-00 00:00:00')->count();
+            $customers[$index]->orders_claimed = $orders_claimed;
+            $customers[$index]->visits = count($orders);
+            $customers[$index]->current_order = $orders[count($orders) - 1];            
+          }
+        }
+      
+        return $customers;
     }
         
     public function create(){

@@ -5,7 +5,7 @@
                                 <h3 class="card-title">Miscellaneous</h3>
                             </div>
                             <div class="col-md-5">
-                                <input type="text" class="form-control form-control-sm" placeholder="Search"/>
+                                <input type="text" class="form-control form-control-sm" placeholder="Search" ng-model="ic.items.search"/>
                             </div>
                         </div>
                     </div>
@@ -23,7 +23,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="inventoryItem in ic.itemService.items.all">
+                                <tr ng-repeat="inventoryItem in ic.itemService.items.all | filter : ic.items.search">
                                     <td>@{{ inventoryItem.item_id }}</td>
                                     <td>@{{ inventoryItem.name }}</td>
                                     <td>

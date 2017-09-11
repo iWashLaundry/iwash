@@ -5,7 +5,7 @@
                                 <h3 class="card-title">Products</h3>
                             </div>
                             <div class="col-md-5">
-                                <input type="text" class="form-control form-control-sm" placeholder="Search"/>
+                                <input type="text" class="form-control form-control-sm" placeholder="Search" ng-model="pc.products.search" />
                             </div>
                         </div>
                     </div>
@@ -22,7 +22,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="product in pc.productService.products.all">
+                                <tr ng-repeat="product in pc.productService.products.all | filter : pc.products.search">
                                     <td>@{{ $index + 1 }}</td>
                                     <td>@{{ product.name }}</td>
                                     <td>
