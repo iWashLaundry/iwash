@@ -23,26 +23,36 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="inventoryItem in ic.itemService.items.all | filter : ic.items.search">
-                                    <td>@{{ inventoryItem.item_id }}</td>
-                                    <td>@{{ inventoryItem.name }}</td>
+                                <tr ng-repeat="item in ic.itemService.items.all | filter : ic.items.search">
+                                    <td>@{{ item.item_id }}</td>
                                     <td>
-                                        <div class="input-group input-group-sm">
+                                      <span ng-if="!item.edit">@{{ item.name }}</span>
+                                      <input ng-if="item.edit" type="text" class="form-control form-control-sm" placeholder="Name" ng-model="item.name"/>
+                                    </td>
+                                    <td>
+                                        <span ng-if="!item.edit">&#8369@{{ item.price }}</span>
+                                        <div ng-if="item.edit" class="input-group input-group-sm">
                                             <span class="input-group-addon">&#8369</span>
-                                            <input type="number" class="form-control form-control-sm " min="0" ng-value="inventoryItem.price"/>
+                                            <input type="number" class="form-control form-control-sm " min="0" ng-value="item.price" ng-model="item.price"/>
                                        </div>
                                     </td>
                                     <td ng-controller="UnitController as uc">
-                                        <select class="form-control form-control-sm">
-                                            <option ng-repeat="inventoryUnit in uc.unitService.units.all" ng-value="inventoryUnit.uit_id">@{{ inventoryUnit.symbol }}</option>
+                                        <span ng-if="!item.edit">kg</span>
+                                        <select ng-if="item.edit" class="form-control form-control-sm">
+                                            <option ng-repeat="unit in uc.unitService.units.all" ng-value="unit.unit_id">@{{ unit.symbol }}</option>
                                         </select>
                                     </td>
-                                    <td><input type="number" class="form-control form-control-sm " min="0"/></td>
-                                    <td><small>@{{ inventoryItem.created_at }}</small></td>
                                     <td>
-                                        <button type="button" class="close" ng-click="ic.itemService.items.delete(inventoryItem.item_id)">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
+                                        <span ng-if="!item.edit">100</span>
+                                        <input ng-if="item.edit" type="number" class="form-control form-control-sm " min="0"/>
+                                    </td>
+                                    <td>
+                                      <small>@{{ item.created_at }}</small>
+                                    </td>
+                                    <td>
+                                        <a href="#" ng-if="!item.edit" ng-click="item.edit = true"><span class="fa fa-pencil"></span></a>
+                                        <a href="#" ng-if="item.edit" ng-click="ic.itemService.items.update(item); item.edit = false" ><span class="fa fa-floppy-o"></span></a>
+                                        <a href="#" ng-if="item.edit" ng-click="ic.itemService.items.delete(item.item_id)"><span class="fa fa-trash"></span></a>
                                     </td>  
                                 </tr>
                                 <tr>
@@ -58,7 +68,7 @@
                                     </td>
                                     <td ng-controller="UnitController as uc">
                                         <select class="form-control form-control-sm">
-                                            <option ng-repeat="inventoryUnit in uc.unitService.units.all" ng-value="inventoryUnit.uit_id">@{{ inventoryUnit.symbol }}</option>
+                                            <option ng-repeat="unit in uc.unitService.units.all" ng-value="unit.uit_id">@{{ unit.symbol }}</option>
                                         </select>
                                     </td>
                                     <td><input type="number" class="form-control form-control-sm " min="0"/></td>
@@ -69,12 +79,5 @@
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
-                    <div class="card-footer">
-                        <div class="float-right btn-group mr-1">
-                            <button class="btn btn-primary" type="button">Save</button>
-                            <button class="btn btn-primary" type="button">Edit</button>
-                            <button class="btn btn-default" type="button">Reset</button>
-                        </div>
                     </div>
                 </div>

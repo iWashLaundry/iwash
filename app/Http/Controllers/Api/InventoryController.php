@@ -50,7 +50,7 @@ class InventoryController extends Controller
     public function update(){
         $data = Input::all();
 
-        $item = Item::where('item_id', '=', $id)->first();
+        $item = Item::where('item_id', '=', $data['item_id'])->first();
         $item->name = $data['name'];
         $item->save();
         

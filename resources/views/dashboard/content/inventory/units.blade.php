@@ -20,14 +20,20 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="inventoryUnit in uc.unitService.units.all | filter : uc.unitService.units.search">
-                                    <td>@{{ inventoryUnit.unit_id }}</td>
-                                    <td>@{{ inventoryUnit.name }}</td>
-                                    <td>@{{ inventoryUnit.symbol }}</td>
+                                <tr ng-repeat="unit in uc.unitService.units.all | filter : uc.unitService.units.search">
+                                    <td>@{{ unit.unit_id }}</td>
                                     <td>
-                                        <button type="button" class="close" ng-click="uc.unitService.units.delete(inventoryUnit.unit_id)">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
+                                        <span ng-if="!unit.edit">@{{ unit.name }}</span>
+                                        <input ng-if="unit.edit" type="text" class="form-control form-control-sm" placeholder="Name" ng-model="unit.name"/>
+                                    </td>
+                                    <td>
+                                        <span ng-if="!unit.edit">@{{ unit.symbol }}</span>
+                                        <input ng-if="unit.edit" type="text" class="form-control form-control-sm" placeholder="Symbol" ng-model="unit.symbol"/>
+                                    </td>
+                                    <td>
+                                        <a href="#" ng-if="!unit.edit" ng-click="unit.edit = true"><span class="fa fa-pencil"></span></a>
+                                        <a href="#" ng-if="unit.edit" ng-click="uc.unitService.units.update(unit); unit.edit = false" ><span class="fa fa-floppy-o"></span></a>
+                                        <a href="#" ng-if="unit.edit" ng-click="uc.unitService.units.delete(unit.unit_id)"><span class="fa fa-trash"></span></a>
                                     </td>  
                                 </tr>
                                 <tr>
@@ -41,12 +47,5 @@
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
-                    <div class="card-footer">
-                        <div class="float-right btn-group mr-1">
-                            <button class="btn btn-primary" type="button">Save</button>
-                            <button class="btn btn-primary" type="button">Edit</button>
-                            <button class="btn btn-default" type="button">Reset</button>
-                        </div>
                     </div>
                 </div>

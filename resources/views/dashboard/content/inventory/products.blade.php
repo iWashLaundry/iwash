@@ -24,23 +24,28 @@
                             <tbody>
                                 <tr ng-repeat="product in pc.productService.products.all | filter : pc.products.search">
                                     <td>@{{ product.product_id }}</td>
-                                    <td>@{{ product.name }}</td>
                                     <td>
-                                        <div class="input-group input-group-sm">
+                                        <span ng-if="!product.edit">@{{ product.name }}</span>
+                                        <input ng-if="product.edit" type="text" class="form-control form-control-sm" placeholder="Name" ng-model="product.name"/>
+                                    </td>
+                                    <td>
+                                        <span ng-if="!product.edit">&#8369@{{ product.price }}</span>
+                                        <div ng-if="product.edit" class="input-group input-group-sm">
                                             <span class="input-group-addon">&#8369</span>
                                             <input type="number" class="form-control form-control-sm " min="0" ng-model="product.price"/>
                                         </div>
                                     </td>
                                     <td ng-controller="UnitController as uc">
-                                        <select class="form-control form-control-sm">
-                                            <option ng-repeat="inventoryUnit in uc.unitService.units.all" ng-value="inventoryUnit.uit_id">@{{ inventoryUnit.symbol }}</option>
+                                        <span ng-if="!product.edit">kg</span>
+                                        <select ng-if="product.edit" class="form-control form-control-sm">
+                                            <option ng-repeat="unit in uc.unitService.units.all" ng-value="unit.uit_id">@{{ unit.symbol }}</option>
                                         </select>
                                     </td>
                                     <td><small>@{{ product.created_at | date : format : "shortDate" }}<small></td>
                                     <td>
-                                        <button type="button" class="close" ng-click="pc.productService.products.delete(product.product_id)">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
+                                        <a href="#" ng-if="!product.edit" ng-click="product.edit = true"><span class="fa fa-pencil"></span></a>
+                                        <a href="#" ng-if="product.edit" ng-click="pc.productService.products.update(product); product.edit = false" ><span class="fa fa-floppy-o"></span></a>
+                                        <a href="#" ng-if="product.edit" ng-click="pc.productService.products.delete(product.product_id)"><span class="fa fa-trash"></span></a>
                                     </td>  
                                 </tr>
                                 <tr>
@@ -54,7 +59,7 @@
                                     </td>
                                     <td ng-controller="UnitController as uc">
                                         <select class="form-control form-control-sm">
-                                            <option ng-repeat="inventoryUnit in uc.unitService.units.all" ng-value="inventoryUnit.uit_id">@{{ inventoryUnit.symbol }}</option>
+                                            <option ng-repeat="unit in uc.unitService.units.all" ng-value="unit.uit_id">@{{ unit.symbol }}</option>
                                         </select>
                                     </td>
                                     <td colspan="2">
@@ -64,12 +69,5 @@
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
-                    <div class="card-footer">
-                        <div class="float-right btn-group mr-1">
-                            <button class="btn btn-primary" type="button">Save</button>
-                            <button class="btn btn-primary" type="button">Edit</button>
-                            <button class="btn btn-default" type="button">Reset</button>
-                        </div>
                     </div>
                 </div>

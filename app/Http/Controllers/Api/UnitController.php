@@ -39,7 +39,7 @@ class UnitController extends Controller
     public function update(){
         $data = Input::all();
       
-        $unit = Unit::where('unit_id', '=', $data['unit_id']);
+        $unit = Unit::where('unit_id', '=', $data['unit_id'])->first();
         $unit->name = $data['name'];
         $unit->symbol = $data['symbol'];
         $unit->save();

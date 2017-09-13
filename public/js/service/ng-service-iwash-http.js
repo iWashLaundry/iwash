@@ -40,13 +40,18 @@ app.service('iwashhttp', function($http) {
           iwashhttp.closeModal();
         });
     } else if (method == 'delete') {
-      $http.delete(url).then(function(response) {
-          callback(response);
-          iwashhttp.closeModal();
+      var remove = confirm("Are you sure you want to delete this?");
+      if(remove){
+        $http.delete(url).then(function(response) {
+            callback(response);
+            iwashhttp.closeModal();
         },
         function() {
           iwashhttp.closeModal();
         });
+      }else{
+        iwashhttp.closeModal();
+      }
     } else {
       iwashhttp.closeModal();
     }
