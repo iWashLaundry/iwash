@@ -29,7 +29,7 @@
                                     <td>
                                         <div class="input-group input-group-sm">
                                             <span class="input-group-addon">&#8369</span>
-                                            <input type="number" class="form-control form-control-sm " min="0"/>
+                                            <input type="number" class="form-control form-control-sm " min="0" ng-value="inventoryItem.price"/>
                                        </div>
                                     </td>
                                     <td>
@@ -58,7 +58,7 @@
                                     <td>
                                         <div class="input-group input-group-sm">
                                             <span class="input-group-addon">&#8369</span>
-                                            <input type="number" class="form-control form-control-sm" min="0"/>
+                                            <input type="number" class="form-control form-control-sm" min="0" ng-model="ic.itemService.item.price"/>
                                         </div>                                                
                                     </td>
                                     <td>

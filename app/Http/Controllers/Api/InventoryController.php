@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Input;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Item;
+use App\Models\ItemPrice;
 
 class InventoryController extends Controller
 {
@@ -19,9 +20,9 @@ class InventoryController extends Controller
 
     public function get($id = null){
         if(!$id){
-            return Item::all();            
+            return Item::allWithPrices();            
         }else{
-            return Item::where('item_id', '=', $id)->first();
+            return Item::getItemWithPrice($id);
         }
     }
         
@@ -31,6 +32,17 @@ class InventoryController extends Controller
         $item = new Item;
         $item->name = $data['name'];
         $item->save();
+      
+        $price = new ItemPrice;
+        $price->item_id = $item->item_id;
+        $price->price = $data['price'];
+        $price->save();
+
+        return [
+            "item_id" => $item->item_id, 
+            "name" => $item->name,
+            "price" => $price->price
+        ];
 
         return;
     }
@@ -42,13 +54,26 @@ class InventoryController extends Controller
         $item->name = $data['name'];
         $item->save();
         
-        return;
+        $price = ItemPrice::where('item_id', '=', $item->item_id)->first();
+        $price->item_id = $item->item_id;
+        $price->price = $data['price'];
+        $price->save();
+        
+        return [
+            "item_id" => $item->item_id, 
+            "name" => $item->name,
+            "price" => $price->price
+        ];
     }
 
     public function delete($id){
         $item = Item::where('item_id', '=', $id)->first();
         $item->delete();
 
+        $prices = ItemPrice::where('item_id','=', $id)->get();
+        foreach($prices as $price){
+            $price->delete();            
+        }
         return;
     }
 }
