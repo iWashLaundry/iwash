@@ -17,7 +17,6 @@
                                     <th width="25%">Product</th>
                                     <th width="25%">Price</th>
                                     <th width="15%">Unit</th>
-                                    <th width="20%">Updated</th>
                                     <th width="5%"><!--serves as padding--></th>
                                 </tr>
                             </thead>
@@ -41,7 +40,6 @@
                                             <option ng-repeat="unit in uc.unitService.units.all" ng-value="unit.uit_id">@{{ unit.symbol }}</option>
                                         </select>
                                     </td>
-                                    <td><small>@{{ product.created_at | date : format : "shortDate" }}<small></td>
                                     <td>
                                         <a href="#" ng-if="!product.edit" ng-click="product.edit = true"><span class="fa fa-pencil"></span></a>
                                         <a href="#" ng-if="product.edit" ng-click="pc.productService.products.update(product); product.edit = false" ><span class="fa fa-floppy-o"></span></a>
@@ -62,7 +60,7 @@
                                             <option ng-repeat="unit in uc.unitService.units.all" ng-value="unit.uit_id">@{{ unit.symbol }}</option>
                                         </select>
                                     </td>
-                                    <td colspan="2">
+                                    <td>
                                         <button class="btn btn-primary btn-md" type="submit">Add</button>
                                     </td>  
                                     </form>

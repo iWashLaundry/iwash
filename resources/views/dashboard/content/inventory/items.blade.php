@@ -18,8 +18,7 @@
                                     <th width="30%">Price</th>
                                     <th width="20%">Unit</th>
                                     <th width="5%">Quantity</th>
-                                    <th width="5%">Updated</th>
-                                    <th width="5%"><!--serves as padding--></th>
+                                    <th width="10%"><!--serves as padding--></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -47,9 +46,6 @@
                                         <input ng-if="item.edit" type="number" class="form-control form-control-sm " min="0"/>
                                     </td>
                                     <td>
-                                      <small>@{{ item.created_at }}</small>
-                                    </td>
-                                    <td>
                                         <a href="#" ng-if="!item.edit" ng-click="item.edit = true"><span class="fa fa-pencil"></span></a>
                                         <a href="#" ng-if="item.edit" ng-click="ic.itemService.items.update(item); item.edit = false" ><span class="fa fa-floppy-o"></span></a>
                                         <a href="#" ng-if="item.edit" ng-click="ic.itemService.items.delete(item.item_id)"><span class="fa fa-trash"></span></a>
@@ -72,7 +68,7 @@
                                         </select>
                                     </td>
                                     <td><input type="number" class="form-control form-control-sm " min="0"/></td>
-                                    <td colspan="2">
+                                    <td>
                                         <button class="btn btn-primary" type="submit">Add</button>
                                     </td>
                                     </form>
