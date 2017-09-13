@@ -10,15 +10,15 @@
                         </div>
                     </div>
                     <div class="card-block">
-                        <table class="table table-striped table-hover table-responsive text-center">
+                        <table class="table table-striped table-hover table-responsive">
                             <thead class="thead-inverse">
                                 <tr>
                                     <th width="5%">#</th>
                                     <th width="30%">Item</th>
                                     <th width="30%">Price</th>
-                                    <th width="10%">Units</th>
-                                    <th width="10%">Quantity</th>
-                                    <th width="10%">Updated</th>
+                                    <th width="20%">Unit</th>
+                                    <th width="5%">Quantity</th>
+                                    <th width="5%">Updated</th>
                                     <th width="5%"><!--serves as padding--></th>
                                 </tr>
                             </thead>
@@ -32,20 +32,15 @@
                                             <input type="number" class="form-control form-control-sm " min="0" ng-value="inventoryItem.price"/>
                                        </div>
                                     </td>
-                                    <td>
-                                        <select class="form-control form-control-sm" id="select-unit-of-measurement">
-                                            <option>kg</option>
-                                            <option>lbs</option>
-                                            <option>pcs</option>
-                                            <option>cups</option>
-                                            <option>tbsp</option>
-                                            <option>tsp</option>
+                                    <td ng-controller="UnitController as uc">
+                                        <select class="form-control form-control-sm">
+                                            <option ng-repeat="inventoryUnit in uc.unitService.units.all" ng-value="inventoryUnit.uit_id">@{{ inventoryUnit.symbol }}</option>
                                         </select>
                                     </td>
                                     <td><input type="number" class="form-control form-control-sm " min="0"/></td>
                                     <td><small>@{{ inventoryItem.created_at }}</small></td>
                                     <td>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="ic.itemService.items.delete(inventoryItem.item_id)">
+                                        <button type="button" class="close" ng-click="ic.itemService.items.delete(inventoryItem.item_id)">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </td>  
@@ -61,14 +56,9 @@
                                             <input type="number" class="form-control form-control-sm" min="0" ng-model="ic.itemService.item.price"/>
                                         </div>                                                
                                     </td>
-                                    <td>
-                                        <select class="form-control form-control-sm" id="select-unit-of-measurement">
-                                            <option>kg</option>
-                                            <option>lbs</option>
-                                            <option>pcs</option>
-                                            <option>cups</option>
-                                            <option>tbsp</option>
-                                            <option>tsp</option>
+                                    <td ng-controller="UnitController as uc">
+                                        <select class="form-control form-control-sm">
+                                            <option ng-repeat="inventoryUnit in uc.unitService.units.all" ng-value="inventoryUnit.uit_id">@{{ inventoryUnit.symbol }}</option>
                                         </select>
                                     </td>
                                     <td><input type="number" class="form-control form-control-sm " min="0"/></td>

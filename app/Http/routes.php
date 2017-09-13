@@ -75,4 +75,14 @@ Route::group(['prefix' => 'api'], function(){
         
         Route::delete('/{id}', 'Api\ProductController@delete');        
     });
+  
+    Route::group(['prefix' => 'units'], function(){
+        Route::post('/', 'Api\UnitController@create');
+        
+        Route::put('/', 'Api\UnitController@update');
+
+        Route::get('/{id?}', 'Api\UnitController@get');
+        
+        Route::delete('/{id}', 'Api\UnitController@delete');        
+    });
 });
